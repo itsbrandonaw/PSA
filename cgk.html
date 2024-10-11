@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Generational Mentorship Program</title>
+    <!-- Link to Google Fonts for Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Use Inter font */
+            margin: 0;
+            padding: 0;
+        }
+        /* Menu bar styles */
+        .menu {
+            display: flex; /* Use Flexbox for layout */
+            justify-content: space-evenly; /* Spread items evenly with equal spacing */
+            background-color: #003300; /* Dark green color */
+            padding: 10px 0; /* Add some vertical padding */
+        }
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            position: relative; /* Needed for positioning the dropdown */
+        }
+        .menu a:hover {
+            background-color: #005900; /* Lighter green on hover */
+        }
+        /* Dropdown styles */
+        .dropdown {
+            display: none; /* Hide dropdown by default */
+            position: absolute; /* Position it absolutely */
+            left: 0; /* Align dropdown to the left */
+            top: 100%; /* Position dropdown directly below the parent link */
+            background-color: #003300; /* Dark green background */
+            min-width: 160px; /* Minimum width for the dropdown */
+            z-index: 1; /* Ensure dropdown is above other elements */
+        }
+        .dropdown-container:hover .dropdown {
+            display: block; /* Show dropdown on hover */
+        }
+        .dropdown a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block; /* Make links block-level */
+        }
+        .dropdown a:hover {
+            background-color: #005900; /* Lighter green on hover */
+        }
+        /* Main image and overlay text styles */
+        .hero {
+            position: relative;
+            height: 400px; /* Adjust height as needed */
+            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+        }
+        /* Added for proper alignment of the dropdown container */
+        .dropdown-container {
+            position: relative; /* Needed to properly position the dropdown */
+            padding: 0; /* Remove padding to align with other links */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="#home">Home Page</a>
+        <div class="dropdown-container">
+            <a href="#workshops">Workshops</a>
+            <div class="dropdown">
+                <a href="#volunteer">Volunteer</a>
+                <a href="#upskill">Upskill</a>
+                <a href="#mental-wellness">Mental Wellness</a>
+            </div>
+        </div>
+        <a href="#forum">Discussion Forum</a>
+        <a href="#mentorship">Mentorship</a>
+        <a href="#profile">Profile</a>
+    </div>
+
+    <!-- Main Image with Overlay Text -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Cross-Generational Mentorship Program</h1>
+            <p>Connecting experience with innovation to foster growth and collaboration.</p>
+            <p>Join us in building a stronger, more inclusive workplace!</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
