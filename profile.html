@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+            position: relative;
+        }
+
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .menu a:hover {
+            background-color: #005900;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .section p,
+        .section input,
+        .section textarea {
+            margin: 5px 0;
+        }
+
+        .section textarea {
+            width: 100%;
+            resize: none;
+        }
+
+        .edit-btn {
+            background-color: #007700;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .edit-btn:hover {
+            background-color: #005500;
+        }
+
+        .save-btn {
+            background-color: #007700;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: none;
+            transition: background-color 0.3s;
+        }
+
+        .save-btn:hover {
+            background-color: #005500;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input:disabled,
+        textarea:disabled {
+            background-color: #f9f9f9;
+            cursor: not-allowed;
+        }
+
+        .skill-item {
+            display: inline-block;
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            padding: 5px 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="cgk.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <div class="container">
+        <h1>User Profile</h1>
+
+        <!-- Name Section -->
+        <div class="section" id="nameSection">
+            <h2>Name</h2>
+            <input type="text" id="nameInput" value="John Doe" disabled>
+            <button class="edit-btn" onclick="toggleEdit('nameSection')">Edit</button>
+            <button class="save-btn" onclick="saveChanges('nameSection')" id="nameSaveBtn">Save</button>
+        </div>
+
+        <!-- Job Title Section -->
+        <div class="section" id="jobSection">
+            <h2>Job Title</h2>
+            <input type="text" id="jobInput" value="Software Engineer" disabled>
+            <button class="edit-btn" onclick="toggleEdit('jobSection')">Edit</button>
+            <button class="save-btn" onclick="saveChanges('jobSection')" id="jobSaveBtn">Save</button>
+        </div>
+
+        <!-- About Section -->
+        <div class="section" id="aboutSection">
+            <h2>About</h2>
+            <textarea id="aboutInput" rows="4" disabled>This is the about section where the user can describe themselves.</textarea>
+            <button class="edit-btn" onclick="toggleEdit('aboutSection')">Edit</button>
+            <button class="save-btn" onclick="saveChanges('aboutSection')" id="aboutSaveBtn">Save</button>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section" id="skillsSection">
+            <h2>Skills</h2>
+            <div id="skillsList">
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">HTML</span>
+                <span class="skill-item">CSS</span>
+            </div>
+            <input type="text" id="newSkillInput" placeholder="Add a new skill" disabled>
+            <button class="edit-btn" onclick="toggleEdit('skillsSection')">Edit</button>
+            <button class="save-btn" onclick="addSkill()" id="skillsSaveBtn">Save</button>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="section" id="experienceSection">
+            <h2>Experience</h2>
+            <textarea id="experienceInput" rows="4" disabled>This is the experience section where the user can describe their work experience.</textarea>
+            <button class="edit-btn" onclick="toggleEdit('experienceSection')">Edit</button>
+            <button class="save-btn" onclick="saveChanges('experienceSection')" id="experienceSaveBtn">Save</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleEdit(sectionId) {
+            const input = document.querySelector(`#${sectionId} input`);
+            const textarea = document.querySelector(`#${sectionId} textarea`);
+            const editBtn = document.querySelector(`#${sectionId} .edit-btn`);
+            const saveBtn = document.querySelector(`#${sectionId} .save-btn`);
+
+            // Toggle between editable and read-only states
+            if (input) {
+                input.disabled = !input.disabled;
+            }
+            if (textarea) {
+                textarea.disabled = !textarea.disabled;
+            }
+            editBtn.style.display = input.disabled ? 'inline-block' : 'none';
+            saveBtn.style.display = input.disabled ? 'none' : 'inline-block';
+        }
+
+        function saveChanges(sectionId) {
+            const input = document.querySelector(`#${sectionId} input`);
+            const textarea = document.querySelector(`#${sectionId} textarea`);
+
+            // Save changes (you can implement additional logic here, like saving to a database)
+            if (input) {
+                input.disabled = true;
+            }
+            if (textarea) {
+                textarea.disabled = true;
+            }
+
+            // Hide the save button and show the edit button
+            document.querySelector(`#${sectionId} .edit-btn`).style.display = 'inline-block';
+            document.querySelector(`#${sectionId} .save-btn`).style.display = 'none';
+        }
+
+        function addSkill() {
+            const newSkillInput = document.getElementById('newSkillInput');
+            const skillsList = document.getElementById('skillsList');
+
+            if (newSkillInput.value) {
+                const skillItem = document.createElement('span');
+                skillItem.className = 'skill-item';
+                skillItem.textContent = newSkillInput.value;
+
+                skillsList.appendChild(skillItem);
+                newSkillInput.value = ''; // Clear the input field
+            }
+        }
+    </script>
+</body>
+
+</html>
