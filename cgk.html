@@ -19,13 +19,16 @@
             align-items: center; /* Center items vertically */
             background-color: #003300; /* Dark green color */
             padding: 10px 0; /* Add some vertical padding */
+            position: relative; /* Make menu position relative for dropdown */
         }
         .menu a {
             color: white;
             text-align: center;
-            padding: 14px 16px;
+            padding: 14px 20px; /* Adjusted padding for rounded effect */
             text-decoration: none;
             position: relative; /* Needed for positioning the dropdown */
+            border-radius: 20px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition on hover */
         }
         .menu a:hover {
             background-color: #005900; /* Lighter green on hover */
@@ -34,11 +37,14 @@
         .dropdown {
             display: none; /* Hide dropdown by default */
             position: absolute; /* Position it absolutely */
-            left: 0; /* Align dropdown to the left */
-            top: 100%; /* Position dropdown directly below the parent link */
-            background-color: #003300; /* Dark green background */
+            left: 50%; /* Center the dropdown */
+            transform: translateX(-50%); /* Centering adjustment */
+            top: 100%; /* Position dropdown directly below the menu bar */
+            margin-top: 20px; /* Space between menu bar and dropdown */
+            background-color: rgba(0, 51, 0, 0.8); /* Dark green background with 80% opacity */
             min-width: 160px; /* Minimum width for the dropdown */
             z-index: 1; /* Ensure dropdown is above other elements */
+            border-radius: 10px; /* Rounded corners for dropdown */
         }
         .dropdown-container {
             position: relative; /* Position relative to show dropdown */
@@ -65,7 +71,7 @@
         }
         .hero-text {
             position: absolute;
-            top: 50%;
+            top: 70%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
@@ -105,3 +111,4 @@
 
 </body>
 </html>
+
