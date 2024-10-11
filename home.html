@@ -10,9 +10,7 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('images/cgk_image.jpg'); /* Set background image */
-            background-size: cover; /* Cover the entire page */
-            background-position: top; /* Position the image at the top */
+            background-color: #f4f4f4; /* Fallback background color */
             color: white; /* Text color for better contrast */
         }
         .menu {
@@ -58,15 +56,67 @@
             background-color: #007700; /* Change background on hover */
         }
         .main-content {
-            text-align: center; /* Center align text in the main content area */
-            padding: 20px; /* Padding for main content area */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+            position: relative; /* Ensure the overlay is positioned relative to this element */
+            padding: 100px; /* Padding for main content area */
+            background-image: url('images/psa.jpg'); /* Set background image */
+            background-size: cover; /* Cover the entire area */
+            background-position: center; /* Center the image */
             border-radius: 10px; /* Rounded corners */
-            margin: 0 20px; /* Margin to prevent text from touching edges */
-            padding: 40px; /* Extra padding for aesthetics */
-            margin-top: auto; /* Push the main content down to the bottom */
-            margin-bottom: 20%; /* Increased margin from the bottom */
+            margin: 20px; /* Margin to prevent text from touching edges */
+            color: white; /* Text color */
+            overflow: hidden; /* Hide overflow to keep content tidy */
+            display: flex; /* Use flex to center content */
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
         }
+        .main-content::before {
+            content: ""; /* Content for the overlay */
+            position: absolute; /* Position the overlay absolutely */
+            top: 0; /* Align with the top */
+            left: 0; /* Align with the left */
+            right: 0; /* Align with the right */
+            bottom: 0; /* Align with the bottom */
+            background-color: rgba(0, 0, 0, 0.3); /* Black overlay */
+            z-index: 1; /* Ensure overlay is behind text */
+        }
+        .main-content h1 {
+            font-size: 4em; /* Adjust the size as needed */
+            margin: 0; /* Remove default margin for a cleaner look */
+            position: relative; /* Position relative to stack above the overlay */
+            z-index: 2; /* Ensure text is above the overlay */
+            text-align: center; /* Center align text */
+        }
+        .main-content p {
+            font-size: 1.2em; /* Adjust the size as needed */
+            margin: 10px 0 0; /* Add some margin above the paragraph */
+            z-index: 2; /* Ensure text is above the overlay */
+            text-align: center; /* Center align text */
+        }
+
+        /* Additional Boxes Styles */
+        .additional-content {
+            display: flex; /* Use flexbox to arrange boxes side by side */
+            justify-content: space-between; /* Space out the boxes */
+            margin: 20px; /* Margin around the additional content */
+        }
+        .box {
+            background-color: rgba(0, 51, 0, 0.8); /* Dark green background for the boxes */
+            color: white; /* Text color */
+            padding: 20px; /* Padding inside the boxes */
+            border-radius: 10px; /* Rounded corners */
+            flex: 1; /* Make boxes flexible to take equal space */
+            margin: 10px; /* Margin between boxes */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+        }
+        .box h2 {
+            font-size: 2em; /* Size for the section headings */
+            margin: 0; /* Remove default margin */
+        }
+        .box p {
+            font-size: 1em; /* Size for the paragraph text */
+        }
+
     </style>
 </head>
 <body>
@@ -89,8 +139,20 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h1>Welcome to the Cross-Generational Knowledge Mentorship Programme</h1>
-        <p>Explore opportunities for mentorship, learning, and personal development.</p>
+        <h1>Welcome</h1>
+        <h1>Together, We Thrive</h1>
+    </div>
+
+    <!-- Additional Boxes -->
+    <div class="additional-content">
+        <div class="box">
+            <h2>PSA NewsLetter</h2>
+            <p>Your content for the PSA NewsLetter goes here.</p>
+        </div>
+        <div class="box">
+            <h2>Workshop Highlights</h2>
+            <p>Your content for Workshop Highlights goes here.</p>
+        </div>
     </div>
 
 </body>
