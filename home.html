@@ -13,6 +13,19 @@
             background-color: #f4f4f4; /* Fallback background color */
             color: white; /* Text color for better contrast */
         }
+
+        /* Logo Styling */
+        .logo {
+            position: absolute;
+            top: 100px; /* Bring the logo lower to overlap the picture */
+            right: 30px; /* Adjust right position */
+            z-index: 3; /* Ensure the logo is above the background image */
+        }
+        .logo img {
+            width: 250px; /* Make the logo much larger */
+            height: auto;
+        }
+
         .menu {
             display: flex;
             justify-content: space-evenly; /* Even spacing between menu items */
@@ -121,6 +134,11 @@
 </head>
 <body>
 
+    <!-- Logo -->
+    <div class="logo">
+        <img src="images/psa_logo.png" alt="PSA Logo">
+    </div>
+
     <!-- Menu Bar -->
     <div class="menu">
         <a href="home.html">Home Page</a>
@@ -139,7 +157,7 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h1>Welcome</h1>
+        <h1>Thrive 360</h1>
         <h1>Together, We Thrive</h1>
     </div>
 
