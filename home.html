@@ -1,11 +1,97 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="with=device-, initial-scale=1.0"> 
-        <title>Thrive360</title>
-        <link rel="stylesheet" href="home.css">
-    </head>
-    <body>
-        <section class="header"></section>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Cross-Generational Knowledge Mentorship Programme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/cgk_image.jpg'); /* Set background image */
+            background-size: cover; /* Cover the entire page */
+            background-position: top; /* Position the image at the top */
+            color: white; /* Text color for better contrast */
+        }
+        .menu {
+            display: flex;
+            justify-content: space-evenly; /* Even spacing between menu items */
+            align-items: center; /* Center align vertically */
+            background-color: rgba(0, 51, 0, 0.8); /* Dark green background */
+            padding: 10px 0; /* Padding for menu */
+            position: relative; /* Position for dropdown */
+        }
+        .menu a {
+            color: white; /* Text color for menu items */
+            text-align: center; /* Center text in menu */
+            padding: 14px 20px; /* Padding for menu items */
+            text-decoration: none; /* Remove underline */
+            border-radius: 20px; /* Rounded corners for menu items */
+            position: relative; /* Position for dropdown */
+        }
+        .menu a:hover {
+            background-color: #005900; /* Change background color on hover */
+        }
+        /* Dropdown menu */
+        .dropdown {
+            display: none; /* Hide dropdown by default */
+            position: absolute; /* Position dropdown content */
+            background-color: rgba(0, 51, 0, 0.9); /* Darker background */
+            min-width: 160px; /* Minimum width for dropdown */
+            border-radius: 5px; /* Rounded corners */
+            margin-top: 10px; /* Space below menu */
+            z-index: 1; /* Ensure dropdown is above other content */
+        }
+        /* Show dropdown on hover of the 'Workshops' link */
+        .dropdown-container:hover .dropdown {
+            display: block; /* Show dropdown on hover */
+        }
+        .dropdown a {
+            padding: 12px 16px; /* Padding for dropdown items */
+            text-align: left; /* Align text to the left */
+            display: block; /* Make dropdown items block elements */
+            color: white; /* Color of dropdown links */
+        }
+        .dropdown a:hover {
+            background-color: #007700; /* Change background on hover */
+        }
+        .main-content {
+            text-align: center; /* Center align text in the main content area */
+            padding: 20px; /* Padding for main content area */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+            border-radius: 10px; /* Rounded corners */
+            margin: 0 20px; /* Margin to prevent text from touching edges */
+            padding: 40px; /* Extra padding for aesthetics */
+            margin-top: auto; /* Push the main content down to the bottom */
+            margin-bottom: 20%; /* Increased margin from the bottom */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="home.html">Home Page</a>
+        <div class="dropdown-container">
+            <a href="workshops.html">Workshops</a>
+            <div class="dropdown">
+                <a href="volunteer.html">Volunteer</a>
+                <a href="upskill.html">Upskill</a>
+                <a href="wellness.html">Mental Wellness</a>
+            </div>
+        </div>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="cgk.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome to the Cross-Generational Knowledge Mentorship Programme</h1>
+        <p>Explore opportunities for mentorship, learning, and personal development.</p>
+    </div>
+
+</body>
 </html>
