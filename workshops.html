@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light background color for contrast */
+        }
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+            position: relative; /* Position for dropdown */
+        }
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative; /* Position for dropdown */
+        }
+        .menu a:hover {
+            background-color: #005900;
+        }
+        /* Dropdown menu */
+        .dropdown {
+            display: none; /* Hide dropdown by default */
+            position: absolute;
+            background-color: rgba(0, 51, 0, 0.9); /* Darker background */
+            min-width: 160px; /* Minimum width for dropdown */
+            border-radius: 5px; /* Rounded corners */
+            margin-top: 10px; /* Space below menu */
+            z-index: 1; /* Ensure dropdown is above other content */
+        }
+        /* Show dropdown on hover of the 'Workshops' link */
+        .menu > .dropdown-container:hover .dropdown {
+            display: block; /* Show dropdown on hover */
+        }
+        .dropdown a {
+            padding: 12px 16px; /* Padding for dropdown items */
+            text-align: left; /* Align text to the left */
+            display: block; /* Make dropdown items block elements */
+            color: white; /* Color of dropdown links */
+        }
+        .dropdown a:hover {
+            background-color: #007700; /* Change background on hover */
+        }
+        .workshops {
+            display: flex;
+            justify-content: space-around; /* Evenly distribute columns */
+            padding: 50px 20px; /* Padding for space */
+        }
+        .workshop-column {
+            background-color: white; /* White background for workshop sections */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            width: 30%; /* Each column takes up 30% of the space */
+            position: relative; /* Positioning for image */
+            text-align: center; /* Center align text */
+        }
+        .workshop-column img {
+            width: 100%; /* Make the image take the full width of the column */
+            height: 200px; /* Set a specific height for all images */
+            object-fit: cover; /* This will make the image cover the entire area without distorting */
+            border-radius: 10px; /* Rounded corners for images */
+            margin-bottom: 10px; /* Space below the image */
+        }
+        .main-content {
+            text-align: center; /* Center text in the main content area */
+            padding: 20px; /* Padding for main content area */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="index.html">Home Page</a>
+        <div class="dropdown-container">
+            <a href="#">Workshops</a>
+            <div class="dropdown">
+                <a href="#volunteer">Volunteer</a>
+                <a href="#upskill">Upskill</a>
+                <a href="#mental-wellness">Mental Wellness</a>
+            </div>
+        </div>
+        <a href="discussion_forum.html">Discussion Forum</a>
+        <a href="mentorship.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Workshops</h1>
+        <div class="workshops">
+            <!-- Volunteer Section -->
+            <div class="workshop-column" id="volunteer">
+                <img src="volunteer_image.jpg" alt="Volunteer Workshop"> <!-- Updated image -->
+                <h2>Volunteer</h2>
+                <p>Join our volunteer program to give back to the community and develop valuable skills.</p>
+            </div>
+
+            <!-- Upskill Section -->
+            <div class="workshop-column" id="upskill">
+                <img src="upskill_image.jpg" alt="Upskill Workshop"> <!-- Replace with actual image -->
+                <h2>Upskill</h2>
+                <p>Enhance your skills with our specialized training workshops designed for personal growth.</p>
+            </div>
+
+            <!-- Mental Wellness Section -->
+            <div class="workshop-column" id="mental-wellness">
+                <img src="mental_wellness_image.jpg" alt="Mental Wellness Workshop"> <!-- Replace with actual image -->
+                <h2>Mental Wellness</h2>
+                <p>Participate in workshops that focus on mental health and well-being to support a balanced life.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -4,81 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross-Generational Knowledge Mentorship Programme</title>
-    <!-- Link to Google Fonts for Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif; /* Use Inter font */
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
+            background-image: url('cgk_image.jpg'); /* Set background image */
+            background-size: cover; /* Cover the entire page */
+            background-position: top; /* Position the image at the top */
+            color: white; /* Text color for better contrast */
         }
-        /* Menu bar styles */
         .menu {
-            display: flex; /* Use Flexbox for layout */
-            justify-content: space-evenly; /* Spread items evenly with equal spacing */
-            align-items: center; /* Center items vertically */
-            background-color: #003300; /* Dark green color */
-            padding: 10px 0; /* Add some vertical padding */
-            position: relative; /* Make menu position relative for dropdown */
+            display: flex;
+            justify-content: space-evenly; /* Even spacing between menu items */
+            align-items: center; /* Center align vertically */
+            background-color: rgba(0, 51, 0, 0.8); /* Dark green background */
+            padding: 10px 0; /* Padding for menu */
+            position: relative; /* Position for dropdown */
         }
         .menu a {
-            color: white;
-            text-align: center;
-            padding: 14px 20px; /* Adjusted padding for rounded effect */
-            text-decoration: none;
-            position: relative; /* Needed for positioning the dropdown */
-            border-radius: 20px; /* Rounded corners */
-            transition: background-color 0.3s; /* Smooth transition on hover */
+            color: white; /* Text color for menu items */
+            text-align: center; /* Center text in menu */
+            padding: 14px 20px; /* Padding for menu items */
+            text-decoration: none; /* Remove underline */
+            border-radius: 20px; /* Rounded corners for menu items */
+            position: relative; /* Position for dropdown */
         }
         .menu a:hover {
-            background-color: #005900; /* Lighter green on hover */
+            background-color: #005900; /* Change background color on hover */
         }
-        /* Dropdown styles */
+        /* Dropdown menu */
         .dropdown {
             display: none; /* Hide dropdown by default */
-            position: absolute; /* Position it absolutely */
-            left: 50%; /* Center the dropdown */
-            transform: translateX(-50%); /* Centering adjustment */
-            top: 100%; /* Position dropdown directly below the menu bar */
-            margin-top: 20px; /* Space between menu bar and dropdown */
-            background-color: rgba(0, 51, 0, 0.8); /* Dark green background with 80% opacity */
-            min-width: 160px; /* Minimum width for the dropdown */
-            z-index: 1; /* Ensure dropdown is above other elements */
-            border-radius: 10px; /* Rounded corners for dropdown */
+            position: absolute; /* Position dropdown content */
+            background-color: rgba(0, 51, 0, 0.9); /* Darker background */
+            min-width: 160px; /* Minimum width for dropdown */
+            border-radius: 5px; /* Rounded corners */
+            margin-top: 10px; /* Space below menu */
+            z-index: 1; /* Ensure dropdown is above other content */
         }
-        .dropdown-container {
-            position: relative; /* Position relative to show dropdown */
-        }
+        /* Show dropdown on hover of the 'Workshops' link */
         .dropdown-container:hover .dropdown {
             display: block; /* Show dropdown on hover */
         }
         .dropdown a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block; /* Make links block-level */
+            padding: 12px 16px; /* Padding for dropdown items */
+            text-align: left; /* Align text to the left */
+            display: block; /* Make dropdown items block elements */
+            color: white; /* Color of dropdown links */
         }
         .dropdown a:hover {
-            background-color: #005900; /* Lighter green on hover */
+            background-color: #007700; /* Change background on hover */
         }
-        /* Main image and overlay text styles */
-        .hero {
-            position: relative;
-            height: 400px; /* Adjust height as needed */
-            background-image: url('your-image-url.jpg'); /* Replace with your image URL */
-            background-size: cover;
-            background-position: center;
-        }
-        .hero-text {
-            position: absolute;
-            top: 70%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            padding: 20px;
-            border-radius: 8px;
+        .main-content {
+            text-align: center; /* Center align text in the main content area */
+            padding: 20px; /* Padding for main content area */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+            border-radius: 10px; /* Rounded corners */
+            margin: 0 20px; /* Margin to prevent text from touching edges */
+            padding: 40px; /* Extra padding for aesthetics */
+            margin-top: auto; /* Push the main content down to the bottom */
+            margin-bottom: 20%; /* Increased margin from the bottom */
         }
     </style>
 </head>
@@ -86,29 +73,25 @@
 
     <!-- Menu Bar -->
     <div class="menu">
-        <a href="#home">Home Page</a>
+        <a href="index.html">Home Page</a>
         <div class="dropdown-container">
-            <a href="#workshops">Workshops</a>
+            <a href="#">Workshops</a>
             <div class="dropdown">
                 <a href="#volunteer">Volunteer</a>
                 <a href="#upskill">Upskill</a>
                 <a href="#mental-wellness">Mental Wellness</a>
             </div>
         </div>
-        <a href="#forum">Discussion Forum</a>
-        <a href="#mentorship">Mentorship</a>
-        <a href="#profile">Profile</a>
+        <a href="discussion_forum.html">Discussion Forum</a>
+        <a href="mentorship.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
     </div>
 
-    <!-- Main Image with Overlay Text -->
-    <div class="hero">
-        <div class="hero-text">
-            <h1>Cross-Generational Knowledge Mentorship Programme</h1>
-            <p>Connecting experience with innovation to foster growth and collaboration.</p>
-            <p>Join us in building a stronger, more inclusive workplace!</p>
-        </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Cross-Generational Knowledge Mentorship Programme</h1>
+        <p>This program aims to foster learning and development across different generations within our workforce. By pairing mentors and mentees, we create opportunities for knowledge sharing, skill development, and personal growth.</p>
     </div>
 
 </body>
 </html>
-
