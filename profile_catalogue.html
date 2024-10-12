@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteering Opportunities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('images/profile_catalogue_background.jpg');
+            background-size: cover;
+            /* Makes the background cover the entire page */
+            background-repeat: no-repeat;
+            /* Prevents tiling of the image */
+            background-position: center center;
+            /* Centers the image on the page */
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+        }
+
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #005900;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .filter-section {
+            flex: 0 0 250px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-section h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .filter-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .filter-section input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .filter-section button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #005900;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .filter-section button:hover {
+            background-color: #003b00;
+        }
+
+        .main-content {
+            flex-grow: 1;
+        }
+
+        /* Profile Card Styles */
+        .catalogue {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .profile-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .profile-card p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills span {
+            background-color: #005900;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        .search-bar {
+            width: 100%;
+            /* Make the search bar full width */
+            max-width: 600px;
+            /* Set a maximum width for the search bar */
+            margin: 2 auto 20px;
+            /* Center the search bar */
+        }
+
+        .search-bar input {
+            width: 100%;
+            /* Make the input fill the search bar */
+            padding: 15px;
+            /* Increase the padding for a bigger input field */
+            font-size: 16px;
+            /* Adjust the font size */
+            border: 2px solid #ccc;
+            /* Add a border */
+            border-radius: 5px;
+            /* Add rounded corners */
+        }
+
+        .search-bar input:focus {
+            border-color: #007BFF;
+            /* Change border color on focus */
+            outline: none;
+            /* Remove the default outline */
+        }
+        .catalogue {
+            margin-top: 30px; /* Add gap between search bar and profile catalogue */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="cgk.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3>Department</h3>
+
+            <!-- Department Filter -->
+            <label><input type="checkbox" name="department" value="HR"> HR</label>
+            <label><input type="checkbox" name="department" value="Operations"> Operations</label>
+            <label><input type="checkbox" name="department" value="Finance"> Finance</label>
+            <label><input type="checkbox" name="department" value="Engineering"> Engineering</label>
+            <label><input type="checkbox" name="department" value="InfoTech"> InfoTech</label>
+            <label><input type="checkbox" name="department" value="Marketing"> Marketing</label>
+
+            <!-- Filter and Reset Buttons -->
+            <button id="filterBtn">Filter</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search Skills or Interests">
+            </div>
+
+            <div>   
+            </div>
+
+            <!-- Profile Catalogue -->
+            <div class="catalogue" id="profileCatalogue">
+                <!-- Profile cards as before -->
+                <!-- For example, Jaslyn Tay's profile card -->
+                <a href="jaslyn_profile.html" class="profile-card-link" data-department="Marketing">
+                    <div class="profile-card">
+                        <img src="images/jaslyn.jpg" alt="Profile Picture">
+                        <h2>Jaslyn Tay</h2>
+                        <p><strong>Department:</strong> Marketing</p>
+                        <p><strong>Interests:</strong> Management, Social Media</p>
+                        <div class="skills">
+                            <span>Communication</span>
+                            <span>Data Ethics</span>
+                            <span>Business Development</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Add the rest of the profile cards here -->
+                <a href="baw_profile.html" class="profile-card-link" data-department="InfoTech">
+                    <div class="profile-card">
+                        <img src="images/baw.jpg" alt="Profile Picture">
+                        <h2>Brandon Aw</h2>
+                        <p><strong>Department:</strong> Information Technology</p>
+                        <p><strong>Interests:</strong> Machine Learning, AI</p>
+                        <div class="skills">
+                            <span>Python</span>
+                            <span>Data Analysis</span>
+                            <span>Business Development</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="wenjief_profile.html" class="profile-card-link" data-department="Finance">
+                    <div class="profile-card">
+                        <img src="images/wenjief.jpg" alt="Profile Picture">
+                        <h2>Jiang Wenjie</h2>
+                        <p><strong>Department:</strong> Finance Technology</p>
+                        <p><strong>Interests:</strong> Quantitative Finance, OOP</p>
+                        <div class="skills">
+                            <span>Java</span>
+                            <span>Data Visualisation</span>
+                            <span>Data Algorithms</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="bmok_profile.html" class="profile-card-link" data-department="Operations">
+                    <div class="profile-card">
+                        <img src="images/bmok.jpg" alt="Profile Picture">
+                        <h2>Brandon Mok</h2>
+                        <p><strong>Department:</strong> Operations</p>
+                        <p><strong>Interests:</strong> UI/UX Design, Data Analytics</p>
+                        <div class="skills">
+                            <span>Figma</span>
+                            <span>Tableau</span>
+                            <span>Business Development</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Add other profile cards with data-department attribute -->
+                <a class="profile-card-link" data-department="Marketing">
+                    <div class="profile-card">
+                        <img src="images/emptypfp.png" alt="Profile Picture">
+                        <h2>Profile 1</h2>
+                        <p><strong>Department:</strong> Marketing</p>
+                        <p><strong>Interests:</strong> Relations, Telemarketing</p>
+                        <div class="skills">
+                            <span>Communication</span>
+                            <span>Teamwork</span>
+                            <span>Business Development</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="profile-card-link" data-department="Engineering">
+                    <div class="profile-card">
+                        <img src="images/emptypfp.png" alt="Profile Picture">
+                        <h2>Profile 2</h2>
+                        <p><strong>Department:</strong> Engineering</p>
+                        <p><strong>Interests:</strong> Connections, Management</p>
+                        <div class="skills">
+                            <span>Machinery Operation</span>
+                            <span>Planning</span>
+                            <span>Teamwork</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="profile-card-link" data-department="Finance">
+                    <div class="profile-card">
+                        <img src="images/emptypfp.png" alt="Profile Picture">
+                        <h2>Profile 3</h2>
+                        <p><strong>Department:</strong> Finance</p>
+                        <p><strong>Interests:</strong> Connections, Management</p>
+                        <div class="skills">
+                            <span>Quantitative Finance</span>
+                            <span>C++</span>
+                            <span>Communication</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="profile-card-link" data-department="Finance">
+                    <div class="profile-card">
+                        <img src="images/emptypfp.png" alt="Profile Picture">
+                        <h2>Profile 4</h2>
+                        <p><strong>Department:</strong> Finance</p>
+                        <p><strong>Interests:</strong> Investment, Stocks</p>
+                        <div class="skills">
+                            <span>Logistics Procurement</span>
+                            <span>Leadership</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Filtering -->
+    <script>
+        const filterBtn = document.getElementById('filterBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const profiles = document.querySelectorAll('.profile-card-link');
+
+        filterBtn.addEventListener('click', function () {
+            // Get selected checkboxes
+            const checkboxes = document.querySelectorAll('.filter-section input[type="checkbox"]:checked');
+            const selectedDepartments = Array.from(checkboxes).map(cb => cb.value);
+
+            profiles.forEach(profile => {
+                const department = profile.getAttribute('data-department');
+
+                // Show or hide profile based on selected departments
+                if (selectedDepartments.length === 0 || selectedDepartments.includes(department)) {
+                    profile.style.display = '';
+                } else {
+                    profile.style.display = 'none';
+                }
+            });
+        });
+
+        // Reset button functionality
+        resetBtn.addEventListener('click', function () {
+            // Uncheck all checkboxes
+            const checkboxes = document.querySelectorAll('.filter-section input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+
+            // Show all profiles
+            profiles.forEach(profile => profile.style.display = '');
+        });
+    </script>
+</body>
+
+</html>

@@ -51,7 +51,7 @@
         }
 
         .generate-btn {
-            background-color: #007700;
+            background-color: darkcyan;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -124,7 +124,7 @@
         }
 
         .see-more-btn {
-            position:absolute;
+            position: absolute;
             bottom: -230px;
             right: 1%;
             transform: translateX(-50%);
@@ -196,8 +196,16 @@
     <div class="main-content">
         <h1>Cross-Generational Knowledge Mentorship Programme</h1>
         <p>This program aims to foster learning and development across different generations within our workforce.</p>
-        <p>By pairing mentors and mentees, we create opportunities for knowledge sharing, skill development, and personal
+        <p>By pairing mentors and mentees, we create opportunities for knowledge sharing, skill development, and
+            personal
             growth.</p>
+
+        <h4> Skills based on your profile:</h4>
+        <div class="skills" id="skillsDisplay">
+            <span class="skill">Business Development</span>
+            <span class="skill">Java</span>
+            <span class="skill">Communication</span>
+        </div>
         <!-- Generate Button -->
         <button class="generate-btn" onclick="generateProfiles()">Generate Profiles</button>
     </div>
@@ -210,57 +218,66 @@
 
     <!-- Catalogue Section (Initially Hidden) -->
     <div class="catalogue" id="profileCatalogue">
-        <div class="profile-card">
-            <img src="images/jaslyn.jpg" alt="Profile Picture">
-            <h2>Jaslyn Tay</h2>
-            <p><strong>Department:</strong> Marketing</p>
-            <p><strong>Interests:</strong> Social Media, Content Creation</p>
-            <div class="skills">
-                <span>Communication</span>
-                <span>Data Ethics</span>
-                <span>computing Queen</span>
+        <a href="jaslyn_profile.html" class="profile-card-link">
+            <div class="profile-card">
+                <img src="images/jaslyn.jpg" alt="Profile Picture">
+                <h2>Jaslyn Tay</h2>
+                <p><strong>Department:</strong> Marketing</p>
+                <p><strong>Interests:</strong> Management, Social Media</p>
+                <div class="skills">
+                    <span>Communication</span>
+                    <span>Data Ethics</span>
+                    <span>Business Development</span>
+                </div>
             </div>
-        </div>
+        </a>
 
-        <div class="profile-card">
-            <img src="images/baw.jpg" alt="Profile Picture">
-            <h2>Brandon Aw</h2>
-            <p><strong>Department:</strong> Information Technology</p>
-            <p><strong>Interests:</strong> Machine Learning, AI</p>
-            <div class="skills">
-                <span>Python</span>
-                <span>Data Analysis</span>
-                <span>yapping</span>
+        <a href="baw_profile.html" class="profile-card-link">
+            <div class="profile-card">
+                <img src="images/baw.jpg" alt="Profile Picture">
+                <h2>Brandon Aw</h2>
+                <p><strong>Department:</strong> Information Technology</p>
+                <p><strong>Interests:</strong> Machine Learning, AI</p>
+                <div class="skills">
+                    <span>Python</span>
+                    <span>Data Analysis</span>
+                    <span>Business Development</span>
+                </div>
             </div>
-        </div>
+        </a>
 
-        <div class="profile-card">
-            <img src="images/wenjief.jpg" alt="Profile Picture">
-            <h2>Jiang Wenjie</h2>
-            <p><strong>Department:</strong> Finance Technology</p>
-            <p><strong>Interests:</strong> Quantitative Finance, OOP</p>
-            <div class="skills">
-                <span>Java</span>
-                <span>Data Visualisation</span>
-                <span>debugging</span>
+        <a href="wenjief_profile.html" class="profile-card-link">
+            <div class="profile-card">
+                <img src="images/wenjief.jpg" alt="Profile Picture">
+                <h2>Jiang Wenjie</h2>
+                <p><strong>Department:</strong> Finance Technology</p>
+                <p><strong>Interests:</strong> Quantitative Finance, OOP</p>
+                <div class="skills">
+                    <span>Java</span>
+                    <span>Data Visualisation</span>
+                    <span>Data Algorithms</span>
+                </div>
             </div>
-        </div>
+        </a>
 
-        <div class="profile-card">
-            <img src="images/bmok.jpg" alt="Profile Picture">
-            <h2>Brandon Mok</h2>
-            <p><strong>Department:</strong> Information Technology</p>
-            <p><strong>Interests:</strong> UI/UX Design, Data Analytics</p>
-            <div class="skills">
-                <span>Figma</span>
-                <span>Tableau</span>
-                <span>Business Development</span>
+        <a href="bmok_profile.html" class="profile-card-link">
+            <div class="profile-card">
+                <img src="images/bmok.jpg" alt="Profile Picture">
+                <h2>Brandon Mok</h2>
+                <p><strong>Department:</strong> Operations</p>
+                <p><strong>Interests:</strong> UI/UX Design, Data Analytics</p>
+                <div class="skills">
+                    <span>Figma</span>
+                    <span>Tableau</span>
+                    <span>Business Development</span>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
 
     <!-- "See More" Button (Initially Hidden) -->
-    <button class="see-more-btn" id="seeMoreBtn">See More</button>
+    <button class="see-more-btn" id="seeMoreBtn" onclick="goToCatalogue()">See More</button>
+
 
     <script>
         function generateProfiles() {
@@ -287,6 +304,9 @@
                 document.querySelector('.generate-btn').style.display = 'none';
             }, 1000); // 1-second delay
         }
+        function goToCatalogue() {
+        window.location.href = 'profile_catalogue.html'; // Redirect to profile_catalogue.html
+    }
     </script>
 
 </body>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Jiang Wenjie's Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -92,75 +92,66 @@
         .menu {
             display: flex;
             justify-content: space-evenly;
-            /* Even spacing between menu items */
             align-items: center;
-            /* Center align vertically */
             background-color: rgba(0, 51, 0, 0.8);
-            /* Dark green background */
             padding: 10px 0;
-            /* Padding for menu */
             position: relative;
-            /* Position for dropdown */
         }
 
         .menu a {
             color: white;
-            /* Text color for menu items */
             text-align: center;
-            /* Center text in menu */
             padding: 14px 20px;
-            /* Padding for menu items */
             text-decoration: none;
-            /* Remove underline */
             border-radius: 20px;
-            /* Rounded corners for menu items */
-            position: relative;
-            /* Position for dropdown */
         }
 
         .menu a:hover {
             background-color: #005900;
-            /* Change background color on hover */
         }
 
-        /* Dropdown menu */
-        .dropdown {
-            display: none;
-            /* Hide dropdown by default */
-            position: absolute;
-            /* Position dropdown content */
-            background-color: rgba(0, 51, 0, 0.9);
-            /* Darker background */
-            min-width: 160px;
-            /* Minimum width for dropdown */
-            border-radius: 5px;
-            /* Rounded corners */
-            margin-top: 10px;
-            /* Space below menu */
-            z-index: 1;
-            /* Ensure dropdown is above other content */
+        .posts-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 0;
         }
 
-        /* Show dropdown on hover of the 'Workshops' link */
-        .dropdown-container:hover .dropdown {
-            display: block;
-            /* Show dropdown on hover */
+        .blog-column {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-right: 10px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
         }
 
-        .dropdown a {
-            padding: 12px 16px;
-            /* Padding for dropdown items */
-            text-align: left;
-            /* Align text to the left */
-            display: block;
-            /* Make dropdown items block elements */
-            color: white;
-            /* Color of dropdown links */
+        .blog-column img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
 
-        .dropdown a:hover {
-            background-color: #007700;
-            /* Change background on hover */
+        .blog-column h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .blog-column p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        .blog-column a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-column:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -174,39 +165,47 @@
         <a href="cgk.html">Mentorship</a>
         <a href="profile.html">Profile</a>
     </div>
+
     <div class="container">
         <div class="header">
-            <img src="images/emptypfp.png" alt="Profile Picture" class="profile-picture" id="profilePicture">
+            <img src="images/wenjief.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
             <div>
-                <h1 id="nameDisplay">John Doe</h1>
-                <p id="departmentDisplay">Department: Information Technology</p>
+                <h1 id="nameDisplay">Jiang Wenjie</h1>
+                <p id="departmentDisplay">Department: Finance Technology</p>
             </div>
-            <button class="edit-btn" onclick="location.href='edit.html'">Edit</button>
         </div>
 
         <div class="section" id="interestsSection">
             <h2>Interests</h2>
-            <p id="interestsDisplay">Web Development, Data Science</p>
+            <p id="interestsDisplay">Quantitative Finance, OOP</p>
         </div>
 
         <div class="section" id="skillsSection">
             <h2>Skills</h2>
             <div class="skills" id="skillsDisplay">
-                <span class="skill">Business Development</span>
                 <span class="skill">Java</span>
-                <span class="skill">Communication</span>
-            </div>
-        </div>
-        <!-- Posts Section -->
-        <div class="container">
-            <h2> Posts</h2>
-            <div class="posts-container">
-                <div class="blog-column">
-
-                </div>
+                <span class="skill">Data Visualisation</span>
+                <span class="skill">Data Algorithms</span>
             </div>
         </div>
     </div>
+
+    <!-- Posts Section -->
+    <div class="container">
+        <h2> Posts</h2>
+        <div class="posts-container">
+            <div class="blog-column">
+                <a href="blog1.html">
+                    <img src="images/blog1.jpeg" alt="Volunteer Workshop">
+                    <h2>Mental Health</h2>
+                    <p>Creating a Supportive Environment: PSA’s Journey in Mental Health Awareness</p>
+                    <p class="date">Published on: October 08, 2024</p>
+                    <p class="name">Author: Jiang Wenjie</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
