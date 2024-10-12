@@ -6,9 +6,11 @@
 }
 body {
     background: #E3F2FD;
+    box-sizing: border-box;
 }
 header {
-    padding: 10px 0;
+    padding: 10px;
+    box-sizing: border-box;
 }
 .chatbot-toggler {
     position: fixed;
@@ -17,7 +19,7 @@ header {
     height: 50px;
     width: 50px;
     color: #fff;
-    background-color: #017c01;
+    background-color: #007100;
     border: none;
     display: flex;
     align-items: center;
@@ -31,24 +33,30 @@ header {
 }
 .chatbot-toggler .material-symbols-outlined {
     font-size: 24px;
+    box-sizing: border-box;
 }
 
 .chatbot-toggler:hover {
     background-color: #007700;
+    box-sizing: border-box;
     /* Slightly darker on hover */
 }
 .show-chatbot .chatbot-toggler {
     transform: rotate(90deg);
+    box-sizing: border-box;
 }
 .chatbot-toggler span {
     position: absolute;
+    box-sizing: border-box;
 }
 .show-chatbot .chatbot-toggler span:first-child,
 .chatbot-toggler span:last-child {
     opacity: 0;
+    box-sizing: border-box;
 }
 .show-chatbot .chatbot-toggler span:last-child {
     opacity: 1;
+    box-sizing: border-box;
 }
 .chatbot {
     background: #fff;
@@ -66,24 +74,29 @@ header {
                 0 32px 64px -48px rgba(0,0,0,0.5);
     transition: all 0.2s ease;
     z-index: 101;
+    box-sizing: border-box;
 }
 .chatbot.active {
     display: block;
+    box-sizing: border-box;
 }
 .show-chatbot .chatbot {
     transform: scale(1);
     opacity: 1;
     pointer-events: auto;
+    box-sizing: border-box;
 }
 .chatbot header {
-    background: #005900;
+    background: #007100;
     padding: 16px, 0;
     text-align: center;
     position: relative;
+    box-sizing: border-box;
 }
 .chatbot header h2 {
     color: #fff;
     font-size: 1.4rem;
+    box-sizing: border-box;
 }
 .chatbot header span {
     position: absolute;
@@ -93,43 +106,51 @@ header {
     cursor: pointer;
     display: none;
     transform: translateY(-50%);
+    box-sizing: border-box;
 }
 .chatbot .chatbox {
     height: 510px;
     overflow-y: auto;
     padding: 15px 20px 70px;
+    box-sizing: border-box;
 }
 .chatbox .chat {
     display: flex;
+    box-sizing: border-box;
 }
 .chat {
     display: flex; /* Use flexbox for layout */
     margin-bottom: 15px;
     align-items: flex-start; /* Align items to the top */
+    box-sizing: border-box;
 }
 
 .chatbox .incoming {
     justify-content: flex-start; /* Align incoming messages to the left */
+    box-sizing: border-box;
 }
 
 .chatbox .outgoing {
     justify-content: flex-end; /* Align outgoing messages to the right */
+    box-sizing: border-box;
 }
 .chatbox .incoming span {
     height: 32px;
     width: 32px;
     color: #fff;
     align-self: flex-end;
-    background: #005900;
+    background: #007100;
     text-align: center;
     line-height: 32px;
     border-radius: 4px;
     margin: 0 10px 7px 0;
     margin-right: 10px;
+    box-sizing: border-box;
 }
 .chatbox .outgoing {
     margin: 20px 0;
     justify-content: flex-end;
+    box-sizing: border-box;
 }
 .chatbox .chat p {
     color: #fff;
@@ -138,17 +159,20 @@ header {
     max-width: 85%;
     padding: 12px 16px;
     border-radius: 10px 10px 0 10px;
-    background-color: #005900;
+    background-color: #007100;
     clear: both;
+    box-sizing: border-box;
 }
 .chatbox .chat p.error {
     color: #721c24;
     background: #f8d7da;
+    box-sizing: border-box;
 }
 .chatbox .incoming p {
     color: #000;
     background: #f2f2f2;
     border-radius: 10px 10px 10px 0;
+    box-sizing: border-box;
 }
 .chatbot .chat-input {
     position: absolute;
@@ -159,6 +183,7 @@ header {
     background: #fff;
     padding: 5px 20px;
     border-top: 1px solid #f2f2f2;
+    box-sizing: border-box;
 }
 .chat-input textarea {
     height: 55px;
@@ -169,29 +194,34 @@ header {
     resize: none;
     padding: 16px 15px 16px 0;
     max-height: 180px;
+    box-sizing: border-box;
 }
 .chat-input span {
     align-self: flex-end;
     height: 55px;
     line-height: 55px;
-    color: #005900;
+    color: #007100;
     font-size: 1.35rem;
     cursor: pointer;
     visibility: hidden;
+    box-sizing: border-box;
 }
 .chat-input textarea:valid ~ span {
     visibility: visible;
+    box-sizing: border-box;
 }
 .card-wrapper {
     max-width: 100%;
     /* Ensure the container doesn’t overflow the body */
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .swiper-container {
     width: 100%;
     /* Ensure the swiper container fits within the body width */
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 @media(max-width: 490px) {
