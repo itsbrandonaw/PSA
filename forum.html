@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light background color for contrast */
+        }
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+            position: relative; /* Position for dropdown */
+        }
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative; /* Position for dropdown */
+        }
+        .menu a:hover {
+            background-color: #005900;
+        }
+        /* Dropdown menu */
+        .dropdown {
+            display: none; /* Hide dropdown by default */
+            position: absolute;
+            background-color: rgba(0, 51, 0, 0.9); /* Darker background */
+            min-width: 160px; /* Minimum width for dropdown */
+            border-radius: 5px; /* Rounded corners */
+            margin-top: 10px; /* Space below menu */
+            z-index: 1; /* Ensure dropdown is above other content */
+        }
+        /* Show dropdown on hover of the 'Workshops' link */
+        .menu > .dropdown-container:hover .dropdown {
+            display: block; /* Show dropdown on hover */
+        }
+        .dropdown a {
+            padding: 12px 16px; /* Padding for dropdown items */
+            text-align: left; /* Align text to the left */
+            display: block; /* Make dropdown items block elements */
+            color: white; /* Color of dropdown links */
+        }
+        .dropdown a:hover {
+            background-color: #007700; /* Change background on hover */
+        }
+
+        .main-content {
+            position: relative; /* Ensure the overlay is positioned relative to this element */
+            padding: 100px; /* Padding for main content area */
+            background-image: url('images/psa2.jpg'); /* Set background image */
+            background-size: cover; /* Cover the entire area */
+            background-position: center; /* Center the image */
+            border-radius: 10px; /* Rounded corners */
+            margin: 20px; /* Margin to prevent text from touching edges */
+            color: white; /* Text color */
+            overflow: hidden; /* Hide overflow to keep content tidy */
+            display: flex; /* Use flex to center content */
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+        }
+        .main-content::before {
+            content: ""; /* Content for the overlay */
+            position: absolute; /* Position the overlay absolutely */
+            top: 0; /* Align with the top */
+            left: 0; /* Align with the left */
+            right: 0; /* Align with the right */
+            bottom: 0; /* Align with the bottom */
+            background-color: rgba(0, 0, 0, 0.3); /* Black overlay */
+            z-index: 1; /* Ensure overlay is behind text */
+        }
+        .main-content h1 {
+            font-size: 4em; /* Adjust the size as needed */
+            margin: 0; /* Remove default margin for a cleaner look */
+            position: relative; /* Position relative to stack above the overlay */
+            z-index: 2; /* Ensure text is above the overlay */
+            text-align: center; /* Center align text */
+        }
+        .main-content p {
+            font-size: 1.2em; /* Adjust the size as needed */
+            margin: 10px 0 0; /* Add some margin above the paragraph */
+            z-index: 2; /* Ensure text is above the overlay */
+            text-align: center; /* Center align text */
+        }
+        .blogs {
+            display: flex;
+            justify-content: space-around; /* Evenly distribute columns */
+            padding: 50px 20px; /* Padding for space */
+        }
+        .blog-column {
+            background-color: white; /* White background for workshop sections */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            width: 30%; /* Each column takes up 30% of the space */
+            position: relative; /* Positioning for image */
+            text-align: center; /* Center align text */
+        }
+        .blog-column img {
+            width: 100%; /* Make the image take the full width of the column */
+            height: 200px; /* Set a specific height for all images */
+            object-fit: cover; /* This will make the image cover the entire area without distorting */
+            border-radius: 10px; /* Rounded corners for images */
+            margin-bottom: 10px; /* Space below the image */
+        }
+        .diff-blogs {
+            text-align: center; /* Center text in the main content area */
+            padding: 20px; /* Padding for main content area */
+        }
+        .date {
+        font-size: 0.8em; /* Smaller font size */
+        color: grey; /* Grey color */
+        margin-top: 10px; /* Optional: Add some space above the date */
+        }
+        .name {
+        font-size: 0.8em; /* Smaller font size */
+        color: grey; /* Grey color */
+        margin-top: 10px; 
+    }
+    .blog-column {
+        transition: transform 0.2s; /* Smooth transition */
+        position: relative; /* Required for moving the box */
+    }
+
+    .blog-column:hover {
+        transform: translateY(-5px); /* Move the box up slightly on hover */
+    }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <div class="dropdown-container">
+            <a href="workshops.html">Workshops</a>
+            <div class="dropdown">
+                <a href="volunteer.html">Volunteer</a>
+                <a href="upskill.html">Upskill</a>
+                <a href="wellness.html">Mental Wellness</a>
+            </div>
+        </div>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="cgk.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <!-- Main Content -->
+    <section class="blog-content">
+        <div class="main-content">
+            <h1>Weekly Blogs</h1>
+        </div>
+    </section>
+
+    <div class="diff-blogs">
+        
+        <div class="blogs">
+            <div class="blog-column" id="volunteer">
+                <img src="images/blog1.jpeg" alt="Volunteer Workshop"> <!-- Updated image -->
+                <h2><a href="blog1.html" style="color: inherit; text-decoration: none;">Mental Health</a></h2>
+                <p>Creating a Supportive Environment: PSA’s Journey in Mental Health Awareness</p>
+                <p class="date">Published on: <span>October 08, 2024</span></p> 
+                <p class="name">Author: <span>Jiang Wenjie</span></p> 
+            </div>
+        
+            <div class="blog-column" id="upskill">
+                <img src="images/blop2.jpg" alt="Upskill Workshop"> <!-- Replace with actual image -->
+                <h2><a href="blog2.html" style="color: inherit; text-decoration: none;">Engineer Division</a></h2>
+                <p>Dive into our Engineering Division, where innovation and expertise drive our projects. Discover how our talented team is shaping the future!</p>
+                <p class="date">Published on: <span>October 09, 2024</span></p> 
+                <p class="name">Author: <span>Brandon Aw</span></p> 
+            </div>
+        
+            <div class="blog-column" id="mental-wellness">
+                <img src="images/mental_wellness_image.jpg" alt="Mental Wellness Workshop"> <!-- Replace with actual image -->
+                <h2><a href="blog3.html" style="color: inherit; text-decoration: none;">Blog 3</a></h2>
+                <p>blog3</p>
+                <p class="date">Published on: <span>October 11, 2024</span></p> 
+                <p class="name">Author: <span>Jaslyn Tay</span></p> 
+            </div>
+        </div>
+        
+        <div class="blogs">
+            <div class="blog-column" id="volunteer">
+                <img src="images/volunteer_image.jpg" alt="Volunteer Workshop">
+                <h2><a href="blog4.html" style="color: inherit; text-decoration: none;">Blog 4</a></h2>
+                <p>blog 4</p>
+                <p class="date">Published on: <span>October 11, 2024</span></p>
+                <p class="name">Author: <span>Brandon Mok</span></p>
+            </div>
+        
+            <div class="blog-column" id="upskill">
+                <img src="images/upskill_image.jpg" alt="Upskill Workshop">
+                <h2><a href="blog5.html" style="color: inherit; text-decoration: none;">Blog 5</a></h2>
+                <p>blog 5</p>
+                <p class="date">Published on: <span>October 12, 2024</span></p>
+                <p class="name">Author: <span>Alice Li</span></p>
+            </div>
+        
+            <div class="blog-column" id="mental-wellness">
+                <img src="images/mental_wellness_image.jpg" alt="Mental Wellness Workshop">
+                <h2><a href="blog6.html" style="color: inherit; text-decoration: none;">Blog 6</a></h2>
+                <p>blog 6</p>
+                <p class="date">Published on: <span>October 12, 2024</span></p>
+                <p class="name">Author: <span>Ben Chow</span></p>
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>
