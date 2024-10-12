@@ -162,6 +162,7 @@
             background-color: #007700;
             /* Change background on hover */
         }
+
         .contact-btn {
             background-color: #007700;
             color: white;
@@ -182,6 +183,7 @@
             display: flex;
             align-items: center;
         }
+
         .mentor-tag {
             display: inline-block;
             /* Make it inline-block to adjust size */
@@ -204,6 +206,48 @@
             transform: translateY(-50%);
             /* Center vertically relative to the image */
         }
+        .blog-column {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-right: 10px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .posts-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 0;
+        }
+
+        .blog-column img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .blog-column h2 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .blog-column p {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+
+        .blog-column a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-column:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
@@ -221,7 +265,8 @@
             <div class="header-content">
                 <img src="images/baw.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
                 <div>
-                    <h1 id="nameDisplay">Brandon Aw</h1><span class="mentor-tag">Mentor</span> <!-- Mentor tag added here -->
+                    <h1 id="nameDisplay">Brandon Aw</h1><span class="mentor-tag">Mentor</span>
+                    <!-- Mentor tag added here -->
                     <p id="departmentDisplay">Department: Information Technology</p>
                 </div>
             </div>
@@ -242,14 +287,22 @@
             </div>
         </div>
         <!-- Posts Section -->
-    <div class="container">
-        <h2> Posts</h2>
-        <div class="posts-container">
-            <div class="blog-column">
-                
+        <div class="container">
+            <h2> Posts</h2>
+            <div class="posts-container">
+                    <div class="blog-column" id="upskill">
+                        <img src="images/blog2.jpg" alt="Upskill Workshop"> <!-- Replace with actual image -->
+                        <h2><a href="blog2.html" style="color: inherit; text-decoration: none;">Engineer Division</a>
+                        </h2>
+                        <p>Dive into our Engineering Division, where innovation and expertise drive our projects.
+                            Discover how our talented team is shaping the future!</p>
+                        <p class="date">Published on: <span>October 09, 2024</span></p>
+                        <p class="name">Author: <span>Brandon Aw</span></p>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

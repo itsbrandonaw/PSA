@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            /* Light background color for contrast */
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+            position: relative;
+            /* Position for dropdown */
+        }
+
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative;
+            /* Position for dropdown */
+        }
+
+        .menu a:hover {
+            background-color: #005900;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            display: none;
+            /* Hide dropdown by default */
+            position: absolute;
+            background-color: rgba(0, 51, 0, 0.9);
+            /* Darker background */
+            min-width: 160px;
+            /* Minimum width for dropdown */
+            border-radius: 5px;
+            /* Rounded corners */
+            margin-top: 10px;
+            /* Space below menu */
+            z-index: 1;
+            /* Ensure dropdown is above other content */
+        }
+
+        /* Show dropdown on hover of the 'Workshops' link */
+        .menu>.dropdown-container:hover .dropdown {
+            display: block;
+            /* Show dropdown on hover */
+        }
+
+        .dropdown a {
+            padding: 12px 16px;
+            /* Padding for dropdown items */
+            text-align: left;
+            /* Align text to the left */
+            display: block;
+            /* Make dropdown items block elements */
+            color: white;
+            /* Color of dropdown links */
+        }
+
+        .dropdown a:hover {
+            background-color: #007700;
+            /* Change background on hover */
+        }
+
+        .main-content {
+            position: relative;
+            /* Ensure the overlay is positioned relative to this element */
+            padding: 100px;
+            /* Padding for main content area */
+            background-image: url('images/blog2.jpg');
+            /* Set background image */
+            background-size: cover;
+            /* Cover the entire area */
+            background-position: center;
+            /* Center the image */
+            border-radius: 10px;
+            /* Rounded corners */
+            margin: 20px;
+            /* Margin to prevent text from touching edges */
+            color: white;
+            /* Text color */
+            overflow: hidden;
+            /* Hide overflow to keep content tidy */
+            display: flex;
+            /* Use flex to center content */
+            flex-direction: column;
+            /* Arrange children in a column */
+            justify-content: center;
+            /* Center vertically */
+            align-items: center;
+            /* Center horizontally */
+        }
+
+        .main-content::before {
+            content: "";
+            /* Content for the overlay */
+            position: absolute;
+            /* Position the overlay absolutely */
+            top: 0;
+            /* Align with the top */
+            left: 0;
+            /* Align with the left */
+            right: 0;
+            /* Align with the right */
+            bottom: 0;
+            /* Align with the bottom */
+            background-color: rgba(0, 0, 0, 0.3);
+            /* Black overlay */
+            z-index: 1;
+            /* Ensure overlay is behind text */
+        }
+
+        .main-content h1 {
+            font-size: 6em;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .main-content p {
+            font-size: 1.2em;
+            /* Adjust the size as needed */
+            margin: 10px 0 0;
+            /* Add some margin above the paragraph */
+            z-index: 2;
+            /* Ensure text is above the overlay */
+            text-align: center;
+            /* Center align text */
+        }
+
+        .main-content h2 {
+            font-size: 1em;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin: 20px 0 0;
+        }
+
+        .blog-entry {
+            max-width: 800px;
+            /* Set a maximum width for the entry */
+            margin: 40px auto;
+            /* Center the block horizontally */
+            padding: 0 40px;
+            /* Add padding to the sides for spacing */
+        }
+
+        .blog-title {
+            text-align: center;
+            /* Center align the blog title */
+            font-size: 1.5em;
+            /* Adjust the size as needed */
+            margin: 10px 0;
+            /* Add space above and below the title */
+        }
+
+        .date {
+            text-align: center;
+            /* Center align the date */
+            font-size: 0.9em;
+            /* Make the date smaller */
+            color: gray;
+            /* Set the color to gray */
+            margin-bottom: 10px;
+            /* Add space below the date */
+        }
+
+        .blog-text {
+            text-align: left;
+            /* Left align the text within the entry */
+            font-size: 1em;
+            /* Set the font size for the blog text */
+            line-height: 1.5;
+            /* Adjust line height for readability */
+            margin-top: 10px;
+            /* Add space above the text */
+        }
+
+        /* Comment box */
+        .comment-box {
+            border: 1px solid #ccc;
+            margin: 50px 0;
+            padding: 10px 20px;
+            background: #97ad97;
+            border-radius: 10px;
+            /* Rounded edges */
+        }
+
+        .comment-box h3 {
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+            /* Ensure font matches */
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            background: #f4f4f4;
+            border-radius: 5px;
+            /* Rounded edges for input and textarea */
+            font-family: 'Inter', sans-serif;
+            /* Ensure font matches */
+        }
+
+        .comment-form button {
+            margin: 10px 0;
+            font-family: 'Inter', sans-serif;
+            /* Ensure font matches */
+            background-color: #f4f4f4;
+            /* Initial button color (light green) */
+            color: rgb(0, 0, 0);
+            /* Text color */
+            border: none;
+            /* Remove border */
+            padding: 10px 20px;
+            /* Button padding */
+            border-radius: 5px;
+            /* Rounded edges */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            transition: background-color 0.3s;
+            /* Smooth transition for hover effect */
+        }
+
+        .comment-form button:hover {
+            background-color: #005900;
+            /* Dark green on hover */
+            color: #f4f4f4;
+        }
+
+        .comments-display {
+            margin-top: 30px;
+            /* Space above the comments section */
+            padding: 10px 20px;
+            /* Padding inside the comments section */
+            border: 1px solid #ccc;
+            /* Border around the comments section */
+            background: #f9f9f9;
+            /* Light background color */
+            border-radius: 10px;
+            /* Rounded edges */
+        }
+
+        .comments-display h3 {
+            text-align: left;
+            /* Align the title to the left */
+            font-family: 'Inter', sans-serif;
+            /* Ensure font matches */
+        }
+
+        .comment {
+            margin: 10px 0;
+            /* Space between individual comments */
+            padding: 10px;
+            /* Padding for each comment */
+            border-left: 5px solid #005900;
+            /* Optional left border for comments */
+            background: #fff;
+            /* White background for each comment */
+            border-radius: 5px;
+            /* Rounded edges for each comment */
+        }
+
+        .author-link {
+            color: white;
+            /* Change the color to match your theme */
+            text-decoration: underline;
+            /* Remove underline */
+            font-weight: bold;
+            /* Make it bold */
+        }
+
+        .author-link:hover {
+            text-decoration: underline;
+            /* Underline on hover for interactivity */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <div class="dropdown-container">
+            <a href="workshops.html">Workshops</a>
+            <div class="dropdown">
+                <a href="volunteer.html">Volunteer</a>
+                <a href="upskill.html">Upskill</a>
+                <a href="wellness.html">Mental Wellness</a>
+            </div>
+        </div>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="cgk.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+    <!-- Main Content -->
+    <section class="blog-content">
+        <div class="main-content">
+            <h1>Engineer Division</h1>
+            <h2>
+                By: <a href="baw_profile.html" class="author-link">Brandon Aw</a>
+            </h2>
+
+        </div>
+        <div class="blog-entry">
+            <h3 class="blog-title">Engineer Division</h3>
+            <p class="date">Published on: <span>October 09, 2024</span></p>
+            <p class="blog-text">
+                At PSA, the engineering division is at the forefront of innovation, driving projects that enhance our
+                operational efficiency and safety. Our engineers are dedicated to developing cutting-edge solutions that
+                not only streamline processes but also set new industry standards.
+            </p>
+            <p class="blog-text">
+                Recently, we celebrated the successful implementation of our new automated cargo handling system, which
+                significantly reduces turnaround times and minimizes human error. This state-of-the-art technology
+                utilizes advanced robotics and AI to optimize logistics, ensuring that we remain a leader in the
+                maritime sector.
+            </p>
+            <p class="blog-text">
+                Additionally, our team has embarked on an exciting project focused on sustainability. We're exploring
+                ways to integrate green technologies into our operations, aiming to reduce our carbon footprint and
+                promote environmentally friendly practices within the industry. It's thrilling to see our engineers
+                collaborate on such impactful initiatives that align with global sustainability goals.
+            </p>
+            <p class="blog-text">
+                As we look ahead, we are also working on a new training program designed to enhance the skills of our
+                engineering workforce. This initiative will not only keep us at the cutting edge of technology but also
+                ensure that our team is equipped to tackle the challenges of tomorrow. We encourage everyone to stay
+                tuned for updates and to share any ideas or suggestions on how we can continue to innovate and excel!
+            </p>
+
+            <!--comment-->
+            <div class="comment-box">
+                <h3>Leave a comment!</h3>
+                <form class="comment-form">
+                    <input type="text" placeholder="Enter Name">
+                    <textarea rows="5" placeholder="Your Comment"></textarea>
+                    <button type="submit" class="hero-btn red-btn">POST COMMENT</button>
+                </form>
+            </div>
+            <!-- Comments Display Section -->
+            <div class="comments-display">
+                <h3>Comments</h3>
+                <div class="comment">
+                    <p><strong>Alex Johnson:</strong> Exciting to see the engineering division making strides in
+                        innovative projects! Can't wait to see the new developments.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Ravi Patel:</strong> The recent advancements in engineering at PSA are impressive! The
+                        new tools and techniques are game-changers.</p>
+                </div>
+                <div class="comment">
+                    <p><strong>Samantha Lee:</strong> I love how the engineering team is pushing boundaries. It's
+                        inspiring to be part of such an innovative environment!</p>
+                </div>
+                <div class="comment">
+                    <p><strong>James Kim:</strong> The engineering division’s collaboration with other teams is really
+                        paying off! Looking forward to seeing the outcomes of these projects.</p>
+                </div>
+                <!-- Add more comments here as needed -->
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const commentForm = document.getElementById('comment-form');
+            const commentInput = document.getElementById('comment-input');
+            const commentList = document.getElementById('comment-list');
+
+            // Load comments from local storage when the page is loaded
+            loadComments();
+
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent the form from submitting normally
+                const commentText = commentInput.value.trim();
+
+                if (commentText) {
+                    addComment(commentText);
+                    commentInput.value = ''; // Clear the input field
+                }
+            });
+
+            function addComment(commentText) {
+                // Create a new list item for the comment
+                const li = document.createElement('li');
+                li.textContent = commentText;
+
+                // Append the new comment to the comment list
+                commentList.appendChild(li);
+
+                // Save the comment to local storage
+                saveCommentToLocalStorage(commentText);
+            }
+
+            function saveCommentToLocalStorage(commentText) {
+                // Get existing comments from local storage or initialize an empty array
+                const comments = JSON.parse(localStorage.getItem('comments')) || [];
+                comments.push(commentText); // Add the new comment to the array
+
+                // Save the updated comments array back to local storage
+                localStorage.setItem('comments', JSON.stringify(comments));
+            }
+
+            function loadComments() {
+                // Retrieve comments from local storage
+                const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+                // Display each comment in the comments section
+                comments.forEach(commentText => {
+                    const li = document.createElement('li');
+                    li.textContent = commentText;
+                    commentList.appendChild(li);
+                });
+            }
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>
