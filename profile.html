@@ -7,28 +7,6 @@
     <title>User Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        .menu {
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            background-color: rgba(0, 51, 0, 0.8);
-            padding: 10px 0;
-            position: relative;
-        }
-
-        .menu a {
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .menu a:hover {
-            background-color: #005900;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
@@ -39,35 +17,29 @@
 
         .container {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 40px auto;
             padding: 20px;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .profile-picture {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
         h1 {
-            text-align: center;
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .section h2 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-
-        .section p,
-        .section input,
-        .section textarea {
-            margin: 5px 0;
-        }
-
-        .section textarea {
-            width: 100%;
-            resize: none;
+            margin: 0;
+            font-size: 2em;
         }
 
         .edit-btn {
@@ -81,45 +53,114 @@
         }
 
         .edit-btn:hover {
-            background-color: #005500;
-        }
-
-        .save-btn {
             background-color: #007700;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            cursor: pointer;
-            display: none;
-            transition: background-color 0.3s;
         }
 
-        .save-btn:hover {
-            background-color: #005500;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
+        .section {
+            margin-top: 30px;
+            padding: 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            background-color: #fafafa;
         }
 
-        input:disabled,
-        textarea:disabled {
-            background-color: #f9f9f9;
-            cursor: not-allowed;
+        .section h2 {
+            margin: 0;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
 
-        .skill-item {
-            display: inline-block;
-            background-color: #e0e0e0;
-            border-radius: 15px;
+        .section p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background-color: #e7f3ff;
+            color: #005900;
+            border-radius: 5px;
             padding: 5px 10px;
             margin: 5px;
+            font-size: 0.9em;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            /* Even spacing between menu items */
+            align-items: center;
+            /* Center align vertically */
+            background-color: rgba(0, 51, 0, 0.8);
+            /* Dark green background */
+            padding: 10px 0;
+            /* Padding for menu */
+            position: relative;
+            /* Position for dropdown */
+        }
+
+        .menu a {
+            color: white;
+            /* Text color for menu items */
+            text-align: center;
+            /* Center text in menu */
+            padding: 14px 20px;
+            /* Padding for menu items */
+            text-decoration: none;
+            /* Remove underline */
+            border-radius: 20px;
+            /* Rounded corners for menu items */
+            position: relative;
+            /* Position for dropdown */
+        }
+
+        .menu a:hover {
+            background-color: #005900;
+            /* Change background color on hover */
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            display: none;
+            /* Hide dropdown by default */
+            position: absolute;
+            /* Position dropdown content */
+            background-color: rgba(0, 51, 0, 0.9);
+            /* Darker background */
+            min-width: 160px;
+            /* Minimum width for dropdown */
+            border-radius: 5px;
+            /* Rounded corners */
+            margin-top: 10px;
+            /* Space below menu */
+            z-index: 1;
+            /* Ensure dropdown is above other content */
+        }
+
+        /* Show dropdown on hover of the 'Workshops' link */
+        .dropdown-container:hover .dropdown {
+            display: block;
+            /* Show dropdown on hover */
+        }
+
+        .dropdown a {
+            padding: 12px 16px;
+            /* Padding for dropdown items */
+            text-align: left;
+            /* Align text to the left */
+            display: block;
+            /* Make dropdown items block elements */
+            color: white;
+            /* Color of dropdown links */
+        }
+
+        .dropdown a:hover {
+            background-color: #007700;
+            /* Change background on hover */
         }
     </style>
 </head>
@@ -133,105 +174,31 @@
         <a href="cgk.html">Mentorship</a>
         <a href="profile.html">Profile</a>
     </div>
-
     <div class="container">
-        <h1>User Profile</h1>
-
-        <!-- Name Section -->
-        <div class="section" id="nameSection">
-            <h2>Name</h2>
-            <input type="text" id="nameInput" value="John Doe" disabled>
-            <button class="edit-btn" onclick="toggleEdit('nameSection')">Edit</button>
-            <button class="save-btn" onclick="saveChanges('nameSection')" id="nameSaveBtn">Save</button>
+        <div class="header">
+            <img src="images/emptypfp.png" alt="Profile Picture" class="profile-picture" id="profilePicture">
+            <div>
+                <h1 id="nameDisplay">John Doe</h1>
+                <p id="departmentDisplay">Department: Information Technology</p>
+            </div>
+            <button class="edit-btn" onclick="location.href='edit.html'">Edit</button>
         </div>
 
-        <!-- Job Title Section -->
-        <div class="section" id="jobSection">
-            <h2>Job Title</h2>
-            <input type="text" id="jobInput" value="Software Engineer" disabled>
-            <button class="edit-btn" onclick="toggleEdit('jobSection')">Edit</button>
-            <button class="save-btn" onclick="saveChanges('jobSection')" id="jobSaveBtn">Save</button>
+        <div class="section" id="interestsSection">
+            <h2>Interests</h2>
+            <p id="interestsDisplay">Web Development, Data Science, Hiking</p>
         </div>
 
-        <!-- About Section -->
-        <div class="section" id="aboutSection">
-            <h2>About</h2>
-            <textarea id="aboutInput" rows="4" disabled>This is the about section where the user can describe themselves.</textarea>
-            <button class="edit-btn" onclick="toggleEdit('aboutSection')">Edit</button>
-            <button class="save-btn" onclick="saveChanges('aboutSection')" id="aboutSaveBtn">Save</button>
-        </div>
-
-        <!-- Skills Section -->
         <div class="section" id="skillsSection">
             <h2>Skills</h2>
-            <div id="skillsList">
-                <span class="skill-item">JavaScript</span>
-                <span class="skill-item">HTML</span>
-                <span class="skill-item">CSS</span>
+            <div class="skills" id="skillsDisplay">
+                <span class="skill">JavaScript</span>
+                <span class="skill">Python</span>
+                <span class="skill">HTML</span>
+                <span class="skill">CSS</span>
             </div>
-            <input type="text" id="newSkillInput" placeholder="Add a new skill" disabled>
-            <button class="edit-btn" onclick="toggleEdit('skillsSection')">Edit</button>
-            <button class="save-btn" onclick="addSkill()" id="skillsSaveBtn">Save</button>
-        </div>
-
-        <!-- Experience Section -->
-        <div class="section" id="experienceSection">
-            <h2>Experience</h2>
-            <textarea id="experienceInput" rows="4" disabled>This is the experience section where the user can describe their work experience.</textarea>
-            <button class="edit-btn" onclick="toggleEdit('experienceSection')">Edit</button>
-            <button class="save-btn" onclick="saveChanges('experienceSection')" id="experienceSaveBtn">Save</button>
         </div>
     </div>
-
-    <script>
-        function toggleEdit(sectionId) {
-            const input = document.querySelector(`#${sectionId} input`);
-            const textarea = document.querySelector(`#${sectionId} textarea`);
-            const editBtn = document.querySelector(`#${sectionId} .edit-btn`);
-            const saveBtn = document.querySelector(`#${sectionId} .save-btn`);
-
-            // Toggle between editable and read-only states
-            if (input) {
-                input.disabled = !input.disabled;
-            }
-            if (textarea) {
-                textarea.disabled = !textarea.disabled;
-            }
-            editBtn.style.display = input.disabled ? 'inline-block' : 'none';
-            saveBtn.style.display = input.disabled ? 'none' : 'inline-block';
-        }
-
-        function saveChanges(sectionId) {
-            const input = document.querySelector(`#${sectionId} input`);
-            const textarea = document.querySelector(`#${sectionId} textarea`);
-
-            // Save changes (you can implement additional logic here, like saving to a database)
-            if (input) {
-                input.disabled = true;
-            }
-            if (textarea) {
-                textarea.disabled = true;
-            }
-
-            // Hide the save button and show the edit button
-            document.querySelector(`#${sectionId} .edit-btn`).style.display = 'inline-block';
-            document.querySelector(`#${sectionId} .save-btn`).style.display = 'none';
-        }
-
-        function addSkill() {
-            const newSkillInput = document.getElementById('newSkillInput');
-            const skillsList = document.getElementById('skillsList');
-
-            if (newSkillInput.value) {
-                const skillItem = document.createElement('span');
-                skillItem.className = 'skill-item';
-                skillItem.textContent = newSkillInput.value;
-
-                skillsList.appendChild(skillItem);
-                newSkillInput.value = ''; // Clear the input field
-            }
-        }
-    </script>
 </body>
 
 </html>
