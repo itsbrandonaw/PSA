@@ -29,10 +29,6 @@ const generateResponse = (incomingChatLi) => {
         },
         body: JSON.stringify({
             "contents": [{
-                "role": "system",
-                "parts": [{ text: context }]
-            },
-            {
                 "role": "user",
                 "parts": [{ text: userMessage }]
             }
