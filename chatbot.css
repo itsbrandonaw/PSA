@@ -2,11 +2,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 body {
     background: #E3F2FD;
+}
+header {
+    padding: 10px 0;
 }
 .chatbot-toggler {
     position: fixed;
@@ -15,18 +17,16 @@ body {
     height: 50px;
     width: 50px;
     color: #fff;
-    background-color: #005900;
+    background-color: #017c01;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     outline: none;
     cursor: pointer;
-    background: #005900;
     border-radius: 50%;
     transition: all 0.2s ease;
     z-index: 101;
-    opacity: 0.9;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 .chatbot-toggler .material-symbols-outlined {
