@@ -77,7 +77,16 @@
         }
         .main-content {
             text-align: center; /* Center text in the main content area */
-            padding: 20px; /* Padding for main content area */
+            padding: 20px; /*
+             Padding for main content area */
+        }
+        .workshop-column {
+            transition: transform 0.2s; /* Smooth transition */
+            position: relative; /* Required for moving the box */
+        }
+
+        .workshop-column:hover {
+            transform: translateY(-5px); /* Move the box up slightly on hover */
         }
     </style>
 </head>
@@ -106,21 +115,21 @@
             <!-- Volunteer Section -->
             <div class="workshop-column" id="volunteer">
                 <img src="images/volunteer_image.jpg" alt="Volunteer Workshop"> <!-- Updated image -->
-                <h2>Volunteer</h2>
+                <h2><a href="volunteer.html" style="color: inherit; text-decoration: none;">Volunteer</a></h2>
                 <p>Join our volunteer program to give back to the community and develop valuable skills.</p>
             </div>
 
             <!-- Upskill Section -->
             <div class="workshop-column" id="upskill">
                 <img src="images/upskill_image.jpg" alt="Upskill Workshop"> <!-- Replace with actual image -->
-                <h2>Upskill</h2>
+                <h2><a href="upskill.html" style="color: inherit; text-decoration: none;">Upskill</a></h2>
                 <p>Enhance your skills with our specialized training workshops designed for personal growth.</p>
             </div>
 
             <!-- Mental Wellness Section -->
             <div class="workshop-column" id="mental-wellness">
                 <img src="images/mental_wellness_image.jpg" alt="Mental Wellness Workshop"> <!-- Replace with actual image -->
-                <h2>Mental Wellness</h2>
+                <h2><a href="wellness.html" style="color: inherit; text-decoration: none;">Mental Wellness</a></h2>
                 <p>Participate in workshops that focus on mental health and well-being to support a balanced life.</p>
             </div>
         </div>
