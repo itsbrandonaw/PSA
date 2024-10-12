@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Skill Map</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        #skill-map {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+            background-color: #ffffff;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            pointer-events: none;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="skill-map"></div>
+<div class="tooltip" id="tooltip"></div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+    // Set dimensions
+    const width = window.innerWidth,
+          height = window.innerHeight;
+
+    // Create the SVG container
+    const svg = d3.select("#skill-map").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // Tooltip div for showing skill info
+    const tooltip = d3.select("#tooltip");
+
+    // Sample data for nodes and links (skills and their relationships)
+    const nodes = [
+        { id: 1, skill: "Public Speaking", info: "Key for leadership roles" },
+        { id: 2, skill: "Leadership", info: "Ability to lead teams" },
+        { id: 3, skill: "Communication", info: "Effective exchange of ideas" },
+        { id: 4, skill: "Time Management", info: "Managing time effectively" },
+        { id: 5, skill: "Critical Thinking", info: "Analyze and solve problems" }
+    ];
+
+    const links = [
+        { source: 1, target: 2 },
+        { source: 1, target: 3 },
+        { source: 2, target: 4 },
+        { source: 3, target: 5 },
+        { source: 5, target: 4 }
+    ];
+
+    // Create simulation
+    const simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(d => d.id).distance(150))
+        .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2));
+
+    // Draw links
+    const link = svg.append("g")
+        .attr("class", "links")
+        .selectAll("line")
+        .data(links)
+        .enter().append("line")
+        .attr("stroke", "#aaa")
+        .attr("stroke-width", 2);
+
+    // Draw nodes
+    const node = svg.append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("r", 20)
+        .attr("fill", "#69b3a2")
+        .call(d3.drag()
+            .on("start", dragStarted)
+            .on("drag", dragged)
+            .on("end", dragEnded))
+        .on("mouseover", showTooltip)
+        .on("mouseout", hideTooltip)
+        .on("click", nodeClicked);
+
+    // Add skill labels
+    const label = svg.append("g")
+        .attr("class", "labels")
+        .selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", 4)
+        .text(d => d.skill)
+        .style("font-size", "12px")
+        .style("fill", "#333");
+
+    // Simulation tick function
+    simulation.on("tick", () => {
+        link
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+        node
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y);
+
+        label
+            .attr("x", d => d.x)
+            .attr("y", d => d.y);
+    });
+
+    // Drag functions
+    function dragStarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+    }
+
+    function dragEnded(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+    }
+
+    // Tooltip functions
+    function showTooltip(event, d) {
+        tooltip.style("display", "block")
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 10) + "px")
+            .html(`<strong>${d.skill}</strong><br>${d.info}`);
+    }
+
+    function hideTooltip() {
+        tooltip.style("display", "none");
+    }
+
+    // Node click event (navigate to skill page or user profile)
+    function nodeClicked(event, d) {
+        alert(`Navigating to detailed page for ${d.skill}`);
+        // Example navigation: window.location.href = `/skills/${d.id}`;
+    }
+
+</script>
+
+</body>
+</html>

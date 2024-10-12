@@ -162,6 +162,26 @@
             background-color: #007700;
             /* Change background on hover */
         }
+        .contact-btn {
+            background-color: #007700;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #005900;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
     </style>
 </head>
 
@@ -176,13 +196,15 @@
     </div>
     <div class="container">
         <div class="header">
-            <img src="images/jaslyn.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
-            <div>
-                <h1 id="nameDisplay">Jaslyn Tay</h1>
-                <p id="departmentDisplay">Department: Marketing</p>
+            <div class="header-content">
+                <img src="images/jaslyn.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
+                <div>
+                    <h1 id="nameDisplay">Jaslyn Tay</h1>
+                    <p id="departmentDisplay">Department: Marketing</p>
+                </div>
             </div>
+            <button class="contact-btn" onclick="window.location.href='mailto:jaslyn@example.com';">Contact</button>
         </div>
-
         <div class="section" id="interestsSection">
             <h2>Interests</h2>
             <p id="interestsDisplay">Management, Social Media</p>
@@ -198,14 +220,14 @@
         </div>
 
         <!-- Posts Section -->
-    <div class="container">
-        <h2> Posts</h2>
-        <div class="posts-container">
-            <div class="blog-column">
-                
+        <div class="container">
+            <h2> Posts</h2>
+            <div class="posts-container">
+                <div class="blog-column">
+
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

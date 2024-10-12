@@ -1,0 +1,14 @@
+{
+    "nodes": [
+      { "id": "Public Speaking" },
+      { "id": "Communication Skills" },
+      { "id": "Leadership" },
+      { "id": "Critical Thinking" }
+    ],
+    "links": [
+      { "source": "Public Speaking", "target": "Communication Skills" },
+      { "source": "Public Speaking", "target": "Leadership" },
+      { "source": "Critical Thinking", "target": "Leadership" }
+    ]
+  }
+  
