@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,88 +11,284 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('cgk_image.jpg'); /* Set background image */
-            background-size: cover; /* Cover the entire page */
-            background-position: top; /* Position the image at the top */
-            color: white; /* Text color for better contrast */
+            background-image: url('images/cgk_image.jpg');
+            background-size: cover;
+            background-position: top;
+            color: white;
         }
+
         .menu {
             display: flex;
-            justify-content: space-evenly; /* Even spacing between menu items */
-            align-items: center; /* Center align vertically */
-            background-color: rgba(0, 51, 0, 0.8); /* Dark green background */
-            padding: 10px 0; /* Padding for menu */
-            position: relative; /* Position for dropdown */
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+            position: relative;
         }
+
         .menu a {
-            color: white; /* Text color for menu items */
-            text-align: center; /* Center text in menu */
-            padding: 14px 20px; /* Padding for menu items */
-            text-decoration: none; /* Remove underline */
-            border-radius: 20px; /* Rounded corners for menu items */
-            position: relative; /* Position for dropdown */
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative;
         }
+
         .menu a:hover {
-            background-color: #005900; /* Change background color on hover */
+            background-color: #005900;
         }
-        /* Dropdown menu */
-        .dropdown {
-            display: none; /* Hide dropdown by default */
-            position: absolute; /* Position dropdown content */
-            background-color: rgba(0, 51, 0, 0.9); /* Darker background */
-            min-width: 160px; /* Minimum width for dropdown */
-            border-radius: 5px; /* Rounded corners */
-            margin-top: 10px; /* Space below menu */
-            z-index: 1; /* Ensure dropdown is above other content */
-        }
-        /* Show dropdown on hover of the 'Workshops' link */
-        .dropdown-container:hover .dropdown {
-            display: block; /* Show dropdown on hover */
-        }
-        .dropdown a {
-            padding: 12px 16px; /* Padding for dropdown items */
-            text-align: left; /* Align text to the left */
-            display: block; /* Make dropdown items block elements */
-            color: white; /* Color of dropdown links */
-        }
-        .dropdown a:hover {
-            background-color: #007700; /* Change background on hover */
-        }
+
         .main-content {
-            text-align: center; /* Center align text in the main content area */
-            padding: 20px; /* Padding for main content area */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
-            border-radius: 10px; /* Rounded corners */
-            margin: 0 20px; /* Margin to prevent text from touching edges */
-            padding: 40px; /* Extra padding for aesthetics */
-            margin-top: auto; /* Push the main content down to the bottom */
-            margin-bottom: 20%; /* Increased margin from the bottom */
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin: 0 20px;
+            padding: 40px;
+            margin-top: auto;
+            margin-bottom: 20%;
+        }
+
+        .generate-btn {
+            background-color: #007700;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .generate-btn:hover {
+            background-color: #005500;
+        }
+
+        .catalogue {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .profile-card {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .profile-card p {
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills span {
+            background-color: #005900;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+
+        .see-more-btn {
+            position: absolute;
+            bottom: -130px;
+            right: 1%;
+            transform: translateX(-50%);
+            background-color: #007700;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1em;
+            display: none;
+            transition: background-color 0.3s;
+        }
+
+        .see-more-btn:hover {
+            background-color: #005500;
+        }
+
+        .catalogue {
+            position: relative;
+        }
+
+        /* Spinner style */
+        .spinner {
+            display: none;
+            width: 50px;
+            height: 50px;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* "Recommended Connections" Heading */
+        .connections-heading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: black;
+            background-color: white;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Menu Bar -->
     <div class="menu">
-        <a href="index.html">Home Page</a>
-        <div class="dropdown-container">
-            <a href="#">Workshops</a>
-            <div class="dropdown">
-                <a href="#volunteer">Volunteer</a>
-                <a href="#upskill">Upskill</a>
-                <a href="#mental-wellness">Mental Wellness</a>
-            </div>
-        </div>
-        <a href="discussion_forum.html">Discussion Forum</a>
-        <a href="mentorship.html">Mentorship</a>
+        <a href="home.html">Home</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="cgk.html">Mentorship</a>
         <a href="profile.html">Profile</a>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <h1>Cross-Generational Knowledge Mentorship Programme</h1>
-        <p>This program aims to foster learning and development across different generations within our workforce. By pairing mentors and mentees, we create opportunities for knowledge sharing, skill development, and personal growth.</p>
+        <p>This program aims to foster learning and development across different generations within our workforce.</p>
+        <p>By pairing mentors and mentees, we create opportunities for knowledge sharing, skill development, and personal
+            growth.</p>
+        <!-- Generate Button -->
+        <button class="generate-btn" onclick="generateProfiles()">Generate Profiles</button>
     </div>
 
+    <!-- Loading Spinner -->
+    <div class="spinner" id="loadingSpinner"></div>
+
+    <!-- "Recommended Connections" Heading -->
+    <h2 class="connections-heading" id="connectionsHeading">Recommended Connections</h2>
+
+    <!-- Catalogue Section (Initially Hidden) -->
+    <div class="catalogue" id="profileCatalogue">
+        <div class="profile-card">
+            <img src="images/jaslyn.jpg" alt="Profile Picture">
+            <h2>Jaslyn Tay</h2>
+            <p><strong>Department:</strong> Marketing</p>
+            <p><strong>Interests:</strong> Social Media, Content Creation</p>
+            <div class="skills">
+                <span>Communication</span>
+                <span>Data Ethics</span>
+                <span>computing Queen</span>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <img src="images/baw.jpg" alt="Profile Picture">
+            <h2>Brandon Aw</h2>
+            <p><strong>Department:</strong> Information Technology</p>
+            <p><strong>Interests:</strong> Machine Learning, AI</p>
+            <div class="skills">
+                <span>Python</span>
+                <span>Data Analysis</span>
+                <span>yapping</span>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <img src="images/wenjief.jpg" alt="Profile Picture">
+            <h2>Jiang Wenjie</h2>
+            <p><strong>Department:</strong> Finance Technology</p>
+            <p><strong>Interests:</strong> Quantitative Finance, OOP</p>
+            <div class="skills">
+                <span>Java</span>
+                <span>Data Visualisation</span>
+                <span>debugging</span>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <img src="images/bmok.jpg" alt="Profile Picture">
+            <h2>Brandon Mok</h2>
+            <p><strong>Department:</strong> Information Technology</p>
+            <p><strong>Interests:</strong> UI/UX Design, Data Analytics</p>
+            <div class="skills">
+                <span>Figma</span>
+                <span>Tableau</span>
+                <span>Business Development</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- "See More" Button (Initially Hidden) -->
+    <button class="see-more-btn" id="seeMoreBtn">See More</button>
+
+    <script>
+        function generateProfiles() {
+            const spinner = document.getElementById('loadingSpinner');
+            const catalogue = document.getElementById('profileCatalogue');
+            const seeMoreBtn = document.getElementById('seeMoreBtn');
+            const connectionsHeading = document.getElementById('connectionsHeading');
+
+            // Show the spinner and hide the catalogue
+            spinner.style.display = 'block';
+            catalogue.style.display = 'none';
+            connectionsHeading.style.display = 'none';
+            seeMoreBtn.style.display = 'none';
+
+            // Simulate loading delay (1 second)
+            setTimeout(() => {
+                // Hide the spinner and show the catalogue and see-more button
+                spinner.style.display = 'none';
+                catalogue.style.display = 'grid';
+                connectionsHeading.style.display = 'block'; // Show heading
+                seeMoreBtn.style.display = 'block';
+
+                // Hide the "Generate" button
+                document.querySelector('.generate-btn').style.display = 'none';
+            }, 1000); // 1-second delay
+        }
+    </script>
+
 </body>
+
 </html>
