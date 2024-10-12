@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upskilling Opportunities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+        }
+
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+        }
+
+        .menu a:hover {
+            background-color: #005900;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .filter-section {
+            flex: 0 0 250px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-section h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .filter-section label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .filter-section input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .filter-section input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        /* Green scrollbar for filter section */
+        .filter-section {
+            scrollbar-width: thin;
+            scrollbar-color: #28a745 #f4f4f4;
+        }
+
+        .filter-section::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .filter-section::-webkit-scrollbar-track {
+            background-color: #f4f4f4;
+        }
+
+        .filter-section::-webkit-scrollbar-thumb {
+            background-color: #28a745;
+            border-radius: 10px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .options-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+            grid-template-rows: repeat(2, 1fr);   /* Two rows */
+            gap: 20px;
+            height: calc(100vh - 150px); /* Adjust height to fill the screen */
+            overflow-y: auto;
+        }
+
+        .option-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .option-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .option-card h3 {
+            margin-top: 10px;
+            margin-bottom: 8px;
+            font-size: 1.4em;
+        }
+
+        .option-card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .option-card .duration {
+            font-size: 0.9em;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        /* Scrollbar styling for options grid */
+        .options-grid {
+            scrollbar-width: thin;
+            scrollbar-color: #007700 #ccc;
+        }
+
+        .options-grid::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .options-grid::-webkit-scrollbar-track {
+            background-color: #ccc;
+        }
+
+        .options-grid::-webkit-scrollbar-thumb {
+            background-color: #007700;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="mentorship.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3>Filters</h3>
+            <!-- Duration Filter -->
+            <label for="duration">Course Duration (weeks)</label>
+            <input type="range" id="duration" name="duration" min="1" max="12">
+
+            <!-- Format Filter -->
+            <label><input type="checkbox" name="format" value="Online"> Online</label>
+            <label><input type="checkbox" name="format" value="In-Person"> In-Person</label>
+
+            <!-- Certification Filter -->
+            <label><input type="checkbox" name="certification" value="Certification"> Certification</label>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search upskilling courses...">
+            </div>
+
+            <!-- Options Grid -->
+            <div class="options-grid">
+                <div class="option-card">
+                    <img src="images/upskill1.jpg" alt="Digital Marketing Masterclass">
+                    <h3>Digital Marketing Masterclass</h3>
+                    <p>Learn the fundamentals of digital marketing, including SEO, SEM, and social media strategies. Certification available.</p>
+                    <p class="duration">Duration: 4 weeks</p>
+                </div>
+
+                <div class="option-card">
+                    <img src="images/upskill2.jpg" alt="Data Analytics Fundamentals">
+                    <h3>Data Analytics Fundamentals</h3>
+                    <p>Enhance your analytical skills with this introductory course on data analysis and visualization techniques.</p>
+                    <p class="duration">Duration: 6 weeks</p>
+                </div>
+
+                <div class="option-card">
+                    <img src="images/upskill3.jpg" alt="Leadership Development Program">
+                    <h3>Leadership Development Program</h3>
+                    <p>Build your leadership capabilities with hands-on experience and mentorship. Certification upon completion.</p>
+                    <p class="duration">Duration: 8 weeks</p>
+                </div>
+
+                <div class="option-card">
+                    <img src="images/upskill4.jpg" alt="Project Management Essentials">
+                    <h3>Project Management Essentials</h3>
+                    <p>Master the key principles of project management, including tools like Agile and Scrum. Certification included.</p>
+                    <p class="duration">Duration: 5 weeks</p>
+                </div>
+
+                <div class="option-card">
+                    <img src="images/upskill5.jpg" alt="AI and Machine Learning Basics">
+                    <h3>AI and Machine Learning Basics</h3>
+                    <p>Get started with AI and Machine Learning by learning key concepts and their applications in the real world.</p>
+                    <p class="duration">Duration: 7 weeks</p>
+                </div>
+
+                <div class="option-card">
+                    <img src="images/upskill6.jpg" alt="Public Speaking and Presentation Skills">
+                    <h3>Public Speaking and Presentation Skills</h3>
+                    <p>Gain confidence and improve your public speaking skills in this interactive course. Certification available.</p>
+                    <p class="duration">Duration: 3 weeks</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
