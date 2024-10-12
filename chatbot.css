@@ -15,16 +15,27 @@ body {
     height: 50px;
     width: 50px;
     color: #fff;
-    background: #005900;
+    background-color: #005900;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     outline: none;
     cursor: pointer;
-    background: #018301;
+    background: #005900;
     border-radius: 50%;
     transition: all 0.2s ease;
+    z-index: 101;
+    opacity: 0.9;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.chatbot-toggler .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.chatbot-toggler:hover {
+    background-color: #007700;
+    /* Slightly darker on hover */
 }
 .show-chatbot .chatbot-toggler {
     transform: rotate(90deg);
@@ -54,6 +65,10 @@ body {
     box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
                 0 32px 64px -48px rgba(0,0,0,0.5);
     transition: all 0.2s ease;
+    z-index: 101;
+}
+.chatbot.active {
+    display: block;
 }
 .show-chatbot .chatbot {
     transform: scale(1);
@@ -166,6 +181,17 @@ body {
 }
 .chat-input textarea:valid ~ span {
     visibility: visible;
+}
+.card-wrapper {
+    max-width: 100%;
+    /* Ensure the container doesn’t overflow the body */
+    overflow-x: hidden;
+}
+
+.swiper-container {
+    width: 100%;
+    /* Ensure the swiper container fits within the body width */
+    overflow-x: hidden;
 }
 
 @media(max-width: 490px) {
