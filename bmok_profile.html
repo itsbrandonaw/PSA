@@ -182,6 +182,28 @@
             display: flex;
             align-items: center;
         }
+        .mentor-tag {
+            display: inline-block;
+            /* Make it inline-block to adjust size */
+            background-color: darkcyan;
+            /* Dark cyan background */
+            color: white;
+            /* White text color */
+            padding: 5px 10px;
+            /* Padding for spacing */
+            border-radius: 20px;
+            /* Oval shape */
+            font-size: 0.8em;
+            /* Smaller font size */
+            position: absolute;
+            /* Position it relative to the profile card */
+            top: 150px;
+            /* Adjust as needed */
+            left: 43.5%;
+            /* Adjust to position next to the profile picture */
+            transform: translateY(-50%);
+            /* Center vertically relative to the image */
+        }
     </style>
 </head>
 
@@ -199,7 +221,7 @@
             <div class="header-content">
                 <img src="images/bmok.jpg" alt="Profile Picture" class="profile-picture" id="profilePicture">
                 <div>
-                    <h1 id="nameDisplay">Brandon Mok</h1>
+                    <h1 id="nameDisplay">Brandon Mok</h1><span class="mentor-tag">Mentor</span> <!-- Mentor tag added here -->
                     <p id="departmentDisplay">Department: Operations</p>
                 </div>
             </div>

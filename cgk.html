@@ -178,6 +178,54 @@
             color: black;
             background-color: white;
         }
+
+        .profile-card {
+            /* Other styles for the profile card */
+            padding: 20px;
+            /* Add some padding */
+            border-radius: 10px;
+            /* Rounded corners */
+            background-color: #f9f9f9;
+            /* Light background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Shadow effect */
+            position: relative;
+            /* Allow absolute positioning of the tag */
+        }
+
+        .profile-image {
+            width: 80px;
+            /* Adjust size as needed */
+            height: 80px;
+            /* Adjust size as needed */
+            border-radius: 50%;
+            /* Circular image */
+            margin-right: 10px;
+            /* Space between image and text */
+        }
+
+        .mentor-tag {
+            display: inline-block;
+            /* Make it inline-block to adjust size */
+            background-color: darkcyan;
+            /* Dark cyan background */
+            color: white;
+            /* White text color */
+            padding: 5px 10px;
+            /* Padding for spacing */
+            border-radius: 20px;
+            /* Oval shape */
+            font-size: 0.8em;
+            /* Smaller font size */
+            position: absolute;
+            /* Position it relative to the profile card */
+            top: 120px;
+            /* Adjust as needed */
+            left: 110px;
+            /* Adjust to position next to the profile picture */
+            transform: translateY(-50%);
+            /* Center vertically relative to the image */
+        }
     </style>
 </head>
 
@@ -216,12 +264,12 @@
     <!-- "Recommended Connections" Heading -->
     <h2 class="connections-heading" id="connectionsHeading">Recommended Connections</h2>
 
-    <!-- Catalogue Section (Initially Hidden) -->
     <div class="catalogue" id="profileCatalogue">
         <a href="jaslyn_profile.html" class="profile-card-link">
             <div class="profile-card">
-                <img src="images/jaslyn.jpg" alt="Profile Picture">
+                <img src="images/jaslyn.jpg" alt="Profile Picture" class="profile-image">
                 <h2>Jaslyn Tay</h2>
+                <span class="mentor-tag">Mentor</span> <!-- Mentor tag added here -->
                 <p><strong>Department:</strong> Marketing</p>
                 <p><strong>Interests:</strong> Management, Social Media</p>
                 <div class="skills">
@@ -236,6 +284,7 @@
             <div class="profile-card">
                 <img src="images/baw.jpg" alt="Profile Picture">
                 <h2>Brandon Aw</h2>
+                <span class="mentor-tag">Mentor</span> <!-- Mentor tag added here -->
                 <p><strong>Department:</strong> Information Technology</p>
                 <p><strong>Interests:</strong> Machine Learning, AI</p>
                 <div class="skills">
@@ -250,6 +299,7 @@
             <div class="profile-card">
                 <img src="images/wenjief.jpg" alt="Profile Picture">
                 <h2>Jiang Wenjie</h2>
+                <span class="mentor-tag">Mentor</span> <!-- Mentor tag added here -->
                 <p><strong>Department:</strong> Finance Technology</p>
                 <p><strong>Interests:</strong> Quantitative Finance, OOP</p>
                 <div class="skills">
@@ -264,6 +314,7 @@
             <div class="profile-card">
                 <img src="images/bmok.jpg" alt="Profile Picture">
                 <h2>Brandon Mok</h2>
+                <span class="mentor-tag">Mentor</span> <!-- Mentor tag added here -->
                 <p><strong>Department:</strong> Operations</p>
                 <p><strong>Interests:</strong> UI/UX Design, Data Analytics</p>
                 <div class="skills">
@@ -305,8 +356,8 @@
             }, 1000); // 1-second delay
         }
         function goToCatalogue() {
-        window.location.href = 'profile_catalogue.html'; // Redirect to profile_catalogue.html
-    }
+            window.location.href = 'profile_catalogue.html'; // Redirect to profile_catalogue.html
+        }
     </script>
 
 </body>
