@@ -388,61 +388,104 @@
     </section>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const commentForm = document.getElementById('comment-form');
-            const commentInput = document.getElementById('comment-input');
-            const commentList = document.getElementById('comment-list');
+        "use strict";
 
-            // Load comments from local storage when the page is loaded
-            loadComments();
+        const userId = {
+            name: null,
+            identity: null,
+            image: null,
+            message: null,
+            date: null
+        }
 
-            commentForm.addEventListener('submit', (e) => {
-                e.preventDefault(); // Prevent the form from submitting normally
-                const commentText = commentInput.value.trim();
+        const userComment = document.querySelector(".usercomment");
+        const publishBtn = document.querySelector("#publish");
+        const comments = document.querySelector(".comments");
+        const userName = document.querySelector(".user");
+        const commentCountDisplay = document.getElementById("comment"); // Get the comment count display element
 
-                if (commentText) {
-                    addComment(commentText);
-                    commentInput.value = ''; // Clear the input field
-                }
+        // Load existing comments from local storage
+        function loadComments() {
+            const storedComments = JSON.parse(localStorage.getItem("comments")) || [];
+            storedComments.forEach(comment => {
+                addCommentToDOM(comment);
             });
+            // Update the comment count based on stored comments
+            commentCountDisplay.textContent = storedComments.length;
+        }
 
-            function addComment(commentText) {
-                // Create a new list item for the comment
-                const li = document.createElement('li');
-                li.textContent = commentText;
+        // Function to add a comment to the DOM
+        function addCommentToDOM(comment) {
+            const published = 
+            `<div class="parents">
+                <img src="${comment.image}">
+                <div>
+                    <h1>${comment.name}</h1>
+                    <p>${comment.message}</p>
+                    <div class="engagements"><img src="images/like.png"></div>
+                    <span class="date">${comment.date}</span>
+                </div>
+            </div>`;
+            comments.innerHTML += published;
+        }
 
-                // Append the new comment to the comment list
-                commentList.appendChild(li);
-
-                // Save the comment to local storage
-                saveCommentToLocalStorage(commentText);
-            }
-
-            function saveCommentToLocalStorage(commentText) {
-                // Get existing comments from local storage or initialize an empty array
-                const comments = JSON.parse(localStorage.getItem('comments')) || [];
-                comments.push(commentText); // Add the new comment to the array
-
-                // Save the updated comments array back to local storage
-                localStorage.setItem('comments', JSON.stringify(comments));
-            }
-
-            function loadComments() {
-                // Retrieve comments from local storage
-                const comments = JSON.parse(localStorage.getItem('comments')) || [];
-
-                // Display each comment in the comments section
-                comments.forEach(commentText => {
-                    const li = document.createElement('li');
-                    li.textContent = commentText;
-                    commentList.appendChild(li);
-                });
+        // Check if the user input has changed and enable/disable the publish button
+        userComment.addEventListener("input", e => {
+            if(!userComment.value) {
+                publishBtn.setAttribute("disabled", "disabled");
+                publishBtn.classList.remove("abled")
+            } else {
+                publishBtn.removeAttribute("disabled");
+                publishBtn.classList.add("abled")
             }
         });
+
+        // Add post function
+        function addPost() {
+            console.log("The button works!")
+            if(!userComment.value) return;
+            userId.name = userName.value;
+            if(userId.name === "Anonymous") {
+                userId.identity= false;
+                userId.image = "images/anon.png";
+            } else {
+                userId.identity=true;
+                userId.image = "images/baw.jpg";
+            }
+
+            userId.message = userComment.value;
+            userId.date = new Date().toLocaleString();
+
+            // Create a comment object
+            const comment = {
+                name: userId.name,
+                message: userId.message,
+                image: userId.image,
+                date: userId.date
+            };
+
+            // Store the comment in local storage
+            const commentsArray = JSON.parse(localStorage.getItem("comments")) || [];
+            commentsArray.push(comment);
+            localStorage.setItem("comments", JSON.stringify(commentsArray));
+
+            // Add comment to DOM
+            addCommentToDOM(comment);
+            
+            // Clear input
+            userComment.value = "";
+
+            // Update comments count
+            commentCountDisplay.textContent = commentsArray.length;
+        }
+
+        // Load comments on page load
+        loadComments();
+
+        // Event listener for publish button
+        publishBtn.addEventListener("click", addPost);
+
     </script>
-
-
-
 
 </body>
 
