@@ -69,9 +69,10 @@ const generateResponse = (incomingChatLi) => {
     };
 
     // Include conversation history in the request
-    if (conversationHistory.length > 0) {
-        requestBody.context = conversationHistory;
-    } else if (knowledgeBase) { // Or, if using an external knowledge base
+    //if (conversationHistory.length > 0) {
+    //    requestBody.context = conversationHistory;
+    //} else 
+    if (knowledgeBase) { // Or, if using an external knowledge base
         const relevantInfo = findRelevantInfo(userMessage, knowledgeBase);
         if (relevantInfo) {
             requestBody.context = [{ role: "system", content: relevantInfo }];
