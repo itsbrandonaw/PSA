@@ -95,8 +95,8 @@ const generateResponse = (incomingChatLi) => {
             messageElement.textContent = responseText;
 
             // Add user message and API response to conversation history
-            conversationHistory.push({ role: "user", content: userMessage });
-            conversationHistory.push({ role: "assistant", content: responseText });
+            //conversationHistory.push({ role: "user", content: userMessage });
+            //conversationHistory.push({ role: "assistant", content: responseText });
         })
         .catch(error => {
             messageElement.classList.add("error");
