@@ -8,6 +8,9 @@ let userMessage;
 const API_KEY = "AIzaSyDHGii1Imzay4U6nnPR9aTZFRVbTslPI58";
 const inputInitHeight = chatInput.scrollHeight;
 
+// Store conversation history
+let conversationHistory = []; 
+
 let knowledgeBase = {
     "what is your name": "I am Potty, the chatbot for PSA Singapore!",
     "what is your purpose": "I am here to assist you with any queries you may have about PSA Singapore.",
