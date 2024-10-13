@@ -36,7 +36,7 @@ const generateResponse = (incomingChatLi) => {
     const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
     const messageElement = incomingChatLi.querySelector("p");
 
-    const findRelevantInfo = (userMessage, knowledgeBase) => {
+    /*const findRelevantInfo = (userMessage, knowledgeBase) => {
         // 1. Preprocess userMessage (lowercase, remove punctuation, etc.)
         const processedMessage = userMessage.toLowerCase().replace(/[.,!?;]/g, '');
       
@@ -46,10 +46,10 @@ const generateResponse = (incomingChatLi) => {
         // 3.  Search knowledgeBase for matching keywords
         let relevantInfo = "";
         for (const question in knowledgeBase) {
-          if (keywords.some(keyword => question.toLowerCase().includes(keyword))) {
-            relevantInfo = knowledgeBase[question];
-            break; // Stop at the first match (or you can collect multiple matches)
-          }
+            if (keywords.some(keyword => question.toLowerCase().includes(keyword))) {
+                relevantInfo = knowledgeBase[question];
+                break; // Stop at the first match (or you can collect multiple matches)
+            }
         }
       
         // 4.  Return relevant info (or a default message if no match)
@@ -58,7 +58,7 @@ const generateResponse = (incomingChatLi) => {
         } else {
           return "I couldn't find information on that. Can you rephrase your query?";
         }
-    } 
+    }*/
 
     // Prepare request body
     let requestBody = {
