@@ -83,7 +83,7 @@
             /* Ensure the overlay is positioned relative to this element */
             padding: 100px;
             /* Padding for main content area */
-            background-image: url('images/blog2.jpg');
+            background-image: url('images/blog1.jpeg');
             /* Set background image */
             background-size: cover;
             /* Cover the entire area */
@@ -194,110 +194,125 @@
             /* Add space above the text */
         }
 
-        /* Comment box */
-        .comment-box {
-            border: 1px solid #ccc;
-            margin: 50px 0;
-            padding: 10px 20px;
+        
+
+        /*trying*/
+        .container {
             background: #97ad97;
-            border-radius: 10px;
-            /* Rounded edges */
-        }
-
-        .comment-box h3 {
-            text-align: left;
+            padding: 20px;
             font-family: 'Inter', sans-serif;
-            /* Ensure font matches */
+            box-shadow: 0 0 5px #000;
         }
+        .head {
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .text {
+            margin: 10px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+        .commentbox {
+            display: flex;
+            align-items: center;
 
-        .comment-form input,
-        .comment-form textarea {
-            width: 100%;
+            justify-content: space-around;
             padding: 10px;
-            margin: 15px 0;
-            box-sizing: border-box;
+        }
+        .commentbox > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            object-position: center;
+        }
+        .content {
+            width: 100%;
+        }
+        .user {
             border: none;
             outline: none;
-            background: #f4f4f4;
-            border-radius: 5px;
-            /* Rounded edges for input and textarea */
-            font-family: 'Inter', sans-serif;
-            /* Ensure font matches */
-        }
+            margin: 5px 0;
+            color:#97ad97;
 
-        .comment-form button {
-            margin: 10px 0;
-            font-family: 'Inter', sans-serif;
-            /* Ensure font matches */
-            background-color: #f4f4f4;
-            /* Initial button color (light green) */
-            color: rgb(0, 0, 0);
-            /* Text color */
+            padding: 10px;
+            border-radius: 10px;;
+        }
+        .commentinput > input {
             border: none;
-            /* Remove border */
-            padding: 10px 20px;
-            /* Button padding */
-            border-radius: 5px;
-            /* Rounded edges */
-            cursor: pointer;
-            /* Pointer cursor on hover */
-            transition: background-color 0.3s;
-            /* Smooth transition for hover effect */
+            padding: 10px;
+            padding-left: 10px;
+            outline: none;
+            border-bottom: 2px solid #005900;
+            margin-bottom: 10px;
+            width: 95%;
+            border-radius: 10px;
         }
-
-        .comment-form button:hover {
-            background-color: #005900;
-            /* Dark green on hover */
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color:#005900;
+        }
+        .buttons button {
+            padding: 5px 10px;
+            background:#f4f4f4;
+            color:#005900;
+            text-transform: uppercase;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .buttons button.abled {
+            background:#005900;
             color: #f4f4f4;
         }
-
-        .comments-display {
-            margin-top: 30px;
-            /* Space above the comments section */
-            padding: 10px 20px;
-            /* Padding inside the comments section */
-            border: 1px solid #ccc;
-            /* Border around the comments section */
-            background: #f9f9f9;
-            /* Light background color */
-            border-radius: 10px;
-            /* Rounded edges */
+        .notify {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
         }
-
-        .comments-display h3 {
-            text-align: left;
-            /* Align the title to the left */
+        .notify > input {
+            margin-right: 5px;
+        }
+        .parents {
             font-family: 'Inter', sans-serif;
-            /* Ensure font matches */
+            display: flex;
+            margin-bottom: 5px;
         }
-
-        .comment {
+        .parents h1{
+            font-size: 0.9em;
+        }
+        .parents p {
             margin: 10px 0;
-            /* Space between individual comments */
-            padding: 10px;
-            /* Padding for each comment */
-            border-left: 5px solid #005900;
-            /* Optional left border for comments */
-            background: #fff;
-            /* White background for each comment */
-            border-radius: 5px;
-            /* Rounded edges for each comment */
+            font-size: 0.9em;
         }
-
-        .author-link {
-            color: white;
-            /* Change the color to match your theme */
-            text-decoration: underline;
-            /* Remove underline */
-            font-weight: bold;
-            /* Make it bold */
+        .parents > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            object-position: center;
         }
-
-        .author-link:hover {
-            text-decoration: underline;
-            /* Underline on hover for interactivity */
+        .engagements {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
         }
-    </style>
+        .engagements img {
+            width: 20px;
+        }
+        .engagements img:nth-child(1) {
+            margin-right: 10px;
+            width: 25px;
+        }
+        .date {
+            color:#97ad97;
+            font-size: 0.8em;
+        }    </style>
 </head>
 
 <body>
@@ -353,23 +368,24 @@
                 tuned for updates and to share any ideas or suggestions on how we can continue to innovate and excel!
             </p>
 
-        <!--comment-->
-        <div class="container">
-            <div class="head"><h1>Post a Comment</h1></div>
-            <div><span id="comment">0</span> Comments</div>
-            <div class="text"><p>We are happy to hear from you</p></div>
-            <div class="comments"></div>
-            <div class="commentbox">
-                <img src="images/baw.jpg" alt="">
-                <div class="content">
-                    <h2>Comment as: </h2>
-                    <input type="text" value="Anonymous" class="user">
-                    <div class="commentinput">
-                        <input type="text" placeholder="Enter Comment" class="usercomment">
-                        <div class="buttons">
-                            <button type="submit" disabled id="publish">Post</button>
-                            <div class="notify">
-                                <input type="checkbox" class="notifyinput"> <span>Notify me</span>
+            <!--comment-->
+            <div class="container">
+                <div class="head"><h1>Post a Comment</h1></div>
+                <div><span id="comment">0</span> Comments</div>
+                <div class="text"><p>We are happy to hear from you</p></div>
+                <div class="comments"></div>
+                <div class="commentbox">
+                    <img src="images/baw.jpg" alt="">
+                    <div class="content">
+                        <h2>Comment as: </h2>
+                        <input type="text" value="Anonymous" class="user">
+                        <div class="commentinput">
+                            <input type="text" placeholder="Enter Comment" class="usercomment">
+                            <div class="buttons">
+                                <button type="submit" disabled id="publish">Post</button>
+                                <div class="notify">
+                                    <input type="checkbox" class="notifyinput"> <span>Notify me</span>
+                                </div>
                             </div>
                         </div>
                     </div>
