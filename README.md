@@ -25,7 +25,7 @@ The platform serves as a hub for PSA events, allowing users to browse, filter, a
 Thrive360 is designed to help employees upscale their skills, find valuable connections, and gain knowledge from their peers. By providing a collaborative space, we aim to enhance personal and professional growth within the PSA community.
 
 Technology Stack
-Chatbot API: OpenAI
+Chatbot API: Gemini AI
 Web Development: JavaScript, HTML, CSS
 User Testing
 Extensive user testing has been conducted to ensure a seamless and intuitive user experience. Feedback from employees has been instrumental in refining features and improving overall functionality.
