@@ -33,7 +33,7 @@ const createChatLi = (message, className) => {
 };
 
 const generateResponse = (incomingChatLi) => {
-    const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`;
     const messageElement = incomingChatLi.querySelector("p");
 
     const findRelevantInfo = (userMessage, knowledgeBase) => {
@@ -58,7 +58,7 @@ const generateResponse = (incomingChatLi) => {
         } else {
           return "I couldn't find information on that. Can you rephrase your query?";
         }
-      } 
+    } 
 
     // Prepare request body
     let requestBody = {
@@ -72,12 +72,12 @@ const generateResponse = (incomingChatLi) => {
     //if (conversationHistory.length > 0) {
     //    requestBody.context = conversationHistory;
     //} else 
-    if (knowledgeBase) { // Or, if using an external knowledge base
-        const relevantInfo = findRelevantInfo(userMessage, knowledgeBase);
-        if (relevantInfo) {
-            requestBody.context = [{ role: "system", content: relevantInfo }];
-        }
-    }
+    //if (knowledgeBase) { // Or, if using an external knowledge base
+    //    const relevantInfo = findRelevantInfo(userMessage, knowledgeBase);
+    //    if (relevantInfo) {
+    //        requestBody.context = [{ role: "system", content: relevantInfo }];
+    //    }
+    //}
 
     const requestOptions = {
         method: "POST",
