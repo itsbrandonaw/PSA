@@ -1,12 +1,16 @@
 #Thrive360
 
 Thrive360 README
+
+Link
+thrive360.vercel.app
+
 Overview
 Thrive360 is an innovative employee platform developed for PSA that fosters engagement, knowledge sharing, and personal development. Similar to LinkedIn, Thrive360 provides a dynamic environment for employees to stay updated on PSA-related matters, including important news, events, and sports. Our mission is to empower employees to upscale their skills, engage with their community, and prioritize mental wellness.
 
 Key Features
 1. Chatbot for Instant Queries
-Thrive360 features a sophisticated chatbot powered by OpenAI, designed to provide instant answers to queries related to PSA news and updates. Whether you need information about recent announcements or upcoming events, our chatbot is available to assist you 24/7.
+Thrive360 features a sophisticated chatbot powered by Gemini AI, designed to provide instant answers to queries related to PSA news and updates. Whether you need information about recent announcements or upcoming events, our chatbot is available to assist you 24/7.
 
 2. Cross-Generational Knowledge (CGK) Mentorship Program
 Our CGK program matches users with mentors based on their skills and interests, facilitating valuable knowledge transfer and professional development across different generations. This feature promotes collaboration and encourages employees to learn from one another’s experiences.
