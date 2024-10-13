@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            /* Light background color for contrast */
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(0, 51, 0, 0.8);
+            padding: 10px 0;
+            position: relative;
+            /* Position for dropdown */
+        }
+
+        .menu a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative;
+            /* Position for dropdown */
+        }
+
+        .menu a:hover {
+            background-color: #005900;
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            display: none;
+            /* Hide dropdown by default */
+            position: absolute;
+            background-color: rgba(0, 51, 0, 0.9);
+            /* Darker background */
+            min-width: 160px;
+            /* Minimum width for dropdown */
+            border-radius: 5px;
+            /* Rounded corners */
+            margin-top: 10px;
+            /* Space below menu */
+            z-index: 1;
+            /* Ensure dropdown is above other content */
+        }
+
+        /* Show dropdown on hover of the 'Workshops' link */
+        .menu>.dropdown-container:hover .dropdown {
+            display: block;
+            /* Show dropdown on hover */
+        }
+
+        .dropdown a {
+            padding: 12px 16px;
+            /* Padding for dropdown items */
+            text-align: left;
+            /* Align text to the left */
+            display: block;
+            /* Make dropdown items block elements */
+            color: white;
+            /* Color of dropdown links */
+        }
+
+        .dropdown a:hover {
+            background-color: #007700;
+            /* Change background on hover */
+        }
+
+        .main-content {
+            position: relative;
+            /* Ensure the overlay is positioned relative to this element */
+            padding: 100px;
+            /* Padding for main content area */
+            background-image: url('images/blog1.jpeg');
+            /* Set background image */
+            background-size: cover;
+            /* Cover the entire area */
+            background-position: center;
+            /* Center the image */
+            border-radius: 10px;
+            /* Rounded corners */
+            margin: 20px;
+            /* Margin to prevent text from touching edges */
+            color: white;
+            /* Text color */
+            overflow: hidden;
+            /* Hide overflow to keep content tidy */
+            display: flex;
+            /* Use flex to center content */
+            flex-direction: column;
+            /* Arrange children in a column */
+            justify-content: center;
+            /* Center vertically */
+            align-items: center;
+            /* Center horizontally */
+        }
+
+        .main-content::before {
+            content: "";
+            /* Content for the overlay */
+            position: absolute;
+            /* Position the overlay absolutely */
+            top: 0;
+            /* Align with the top */
+            left: 0;
+            /* Align with the left */
+            right: 0;
+            /* Align with the right */
+            bottom: 0;
+            /* Align with the bottom */
+            background-color: rgba(0, 0, 0, 0.3);
+            /* Black overlay */
+            z-index: 1;
+            /* Ensure overlay is behind text */
+        }
+
+        .main-content h1 {
+            font-size: 6em;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .main-content p {
+            font-size: 1.2em;
+            /* Adjust the size as needed */
+            margin: 10px 0 0;
+            /* Add some margin above the paragraph */
+            z-index: 2;
+            /* Ensure text is above the overlay */
+            text-align: center;
+            /* Center align text */
+        }
+
+        .main-content h2 {
+            font-size: 1em;
+            margin: 0;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin: 20px 0 0;
+        }
+
+        .blog-entry {
+            max-width: 800px;
+            /* Set a maximum width for the entry */
+            margin: 40px auto;
+            /* Center the block horizontally */
+            padding: 0 40px;
+            /* Add padding to the sides for spacing */
+        }
+
+        .blog-title {
+            text-align: center;
+            /* Center align the blog title */
+            font-size: 1.5em;
+            /* Adjust the size as needed */
+            margin: 10px 0;
+            /* Add space above and below the title */
+        }
+
+        .date {
+            text-align: center;
+            /* Center align the date */
+            font-size: 0.9em;
+            /* Make the date smaller */
+            color: gray;
+            /* Set the color to gray */
+            margin-bottom: 10px;
+            /* Add space below the date */
+        }
+
+        .blog-text {
+            text-align: left;
+            /* Left align the text within the entry */
+            font-size: 1em;
+            /* Set the font size for the blog text */
+            line-height: 1.5;
+            /* Adjust line height for readability */
+            margin-top: 10px;
+            /* Add space above the text */
+        }
+
+        
+
+        /*trying*/
+        .container {
+            background: #97ad97;
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 0 5px #000;
+        }
+        .head {
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .text {
+            margin: 10px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+        .commentbox {
+            display: flex;
+            align-items: center;
+
+            justify-content: space-around;
+            padding: 10px;
+        }
+        .commentbox > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            object-position: center;
+        }
+        .content {
+            width: 100%;
+        }
+        .user {
+            border: none;
+            outline: none;
+            margin: 5px 0;
+            color:#97ad97;
+
+            padding: 10px;
+            border-radius: 10px;;
+        }
+        .commentinput > input {
+            border: none;
+            padding: 10px;
+            padding-left: 10px;
+            outline: none;
+            border-bottom: 2px solid #005900;
+            margin-bottom: 10px;
+            width: 95%;
+            border-radius: 10px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color:#005900;
+        }
+        .buttons button {
+            padding: 5px 10px;
+            background:#f4f4f4;
+            color:#005900;
+            text-transform: uppercase;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .buttons button.abled {
+            background:#005900;
+            color: #f4f4f4;
+        }
+        .notify {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .notify > input {
+            margin-right: 5px;
+        }
+        .parents {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            margin-bottom: 5px;
+        }
+        .parents h1{
+            font-size: 0.9em;
+        }
+        .parents p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .parents > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            object-position: center;
+        }
+        .engagements {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .engagements img {
+            width: 20px;
+        }
+        .engagements img:nth-child(1) {
+            margin-right: 10px;
+            width: 25px;
+        }
+        .date {
+            color:#97ad97;
+            font-size: 0.8em;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu Bar -->
+    <div class="menu">
+        <a href="home.html">Home</a>
+        <div class="dropdown-container">
+            <a href="workshops.html">Workshops</a>
+            <div class="dropdown">
+                <a href="volunteer.html">Volunteer</a>
+                <a href="upskill.html">Upskill</a>
+                <a href="wellness.html">Mental Wellness</a>
+            </div>
+        </div>
+        <a href="forum.html">Discussion Forum</a>
+        <a href="cgk.html">Mentorship</a>
+        <a href="profile.html">Profile</a>
+    </div>
+    <!-- Main Content -->
+    <section class="blog-content">
+        <div class="main-content">
+            <h1>Mental Health</h1>
+            <h2>
+                By: <a href="wenjief_profile.html" class="author-link" style="color: inherit; text-decoration: none;">Jiang Wenjie</a>
+            </h2>
+
+        </div>
+        <div class="blog-entry">
+            <h3 class="blog-title">Mental Health at PSA</h3>
+            <p class="date">Published on: <span>October 12, 2024</span></p>
+            <p class="blog-text">
+                At PSA, our commitment to mental health is not just a checkbox; it's a transformative journey that we
+                are all part of.
+                I've witnessed the positive impact our initiatives have had on our workplace culture. The workshops
+                we've implemented
+                are more than just events—they're safe spaces where colleagues come together to share their experiences
+                and learn from one another.
+            </p>
+            <p class="blog-text">
+                It's heartening to see how these programs encourage openness, allowing employees to express their
+                feelings without fear
+                of judgment. This shift in perspective fosters a sense of community, reminding us that we’re not alone
+                in our struggles.
+            </p>
+            <p class="blog-text">
+                Moreover, the feedback we receive shows that these initiatives are truly working. Participants often
+                leave feeling empowered,
+                equipped with tools to better manage their mental health.
+                It's clear that when we invest in our well-being, it leads to happier, healthier, and more productive
+                teams.
+            </p>
+            <p class="blog-text">
+                As we continue to prioritize mental health, I encourage everyone to reflect on these initiatives.
+                What do you think about our efforts? How can we improve? I’d love to hear your thoughts—please comment
+                below!
+            </p>
+            
+            <div class="container">
+                <div class="head"><h1>Post a Comment</h1></div>
+                <div><span id="comment">0</span> Comments</div>
+                <div class="text"><p>We are happy to hear from you</p></div>
+                <div class="comments"></div>
+                <div class="commentbox">
+                    <img src="images/baw.jpg" alt="">
+                    <div class="content">
+                        <h2>Comment as: </h2>
+                        <input type="text" value="Anonymous" class="user">
+                        <div class="commentinput">
+                            <input type="text" placeholder="Enter Comment" class="usercomment">
+                            <div class="buttons">
+                                <button type="submit" disabled id="publish">Post</button>
+                                <div class="notify">
+                                    <input type="checkbox" class="notifyinput"> <span>Notify me</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        "use strict";
+
+        const userId = {
+            name: null,
+            identity: null,
+            image: null,
+            message: null,
+            date: null
+        }
+
+        const userComment = document.querySelector(".usercomment");
+        const publishBtn = document.querySelector("#publish");
+        const comments = document.querySelector(".comments");
+        const userName = document.querySelector(".user");
+        const commentCountDisplay = document.getElementById("comment"); // Get the comment count display element
+
+        // Load existing comments from local storage
+        function loadComments() {
+            const storedComments = JSON.parse(localStorage.getItem("comments")) || [];
+            storedComments.forEach(comment => {
+                addCommentToDOM(comment);
+            });
+            // Update the comment count based on stored comments
+            commentCountDisplay.textContent = storedComments.length;
+        }
+
+        // Function to add a comment to the DOM
+        function addCommentToDOM(comment) {
+            const published = 
+            `<div class="parents">
+                <img src="${comment.image}">
+                <div>
+                    <h1>${comment.name}</h1>
+                    <p>${comment.message}</p>
+                    <div class="engagements"><img src="images/like.png"></div>
+                    <span class="date">${comment.date}</span>
+                </div>
+            </div>`;
+            comments.innerHTML += published;
+        }
+
+        // Check if the user input has changed and enable/disable the publish button
+        userComment.addEventListener("input", e => {
+            if(!userComment.value) {
+                publishBtn.setAttribute("disabled", "disabled");
+                publishBtn.classList.remove("abled")
+            } else {
+                publishBtn.removeAttribute("disabled");
+                publishBtn.classList.add("abled")
+            }
+        });
+
+        // Add post function
+        function addPost() {
+            console.log("The button works!")
+            if(!userComment.value) return;
+            userId.name = userName.value;
+            if(userId.name === "Anonymous") {
+                userId.identity= false;
+                userId.image = "images/anon.png";
+            } else {
+                userId.identity=true;
+                userId.image = "images/baw.jpg";
+            }
+
+            userId.message = userComment.value;
+            userId.date = new Date().toLocaleString();
+
+            // Create a comment object
+            const comment = {
+                name: userId.name,
+                message: userId.message,
+                image: userId.image,
+                date: userId.date
+            };
+
+            // Store the comment in local storage
+            const commentsArray = JSON.parse(localStorage.getItem("comments")) || [];
+            commentsArray.push(comment);
+            localStorage.setItem("comments", JSON.stringify(commentsArray));
+
+            // Add comment to DOM
+            addCommentToDOM(comment);
+            
+            // Clear input
+            userComment.value = "";
+
+            // Update comments count
+            commentCountDisplay.textContent = commentsArray.length;
+        }
+
+        // Load comments on page load
+        loadComments();
+
+        // Event listener for publish button
+        publishBtn.addEventListener("click", addPost);
+
+    </script>
+
+</body>
+
+</html>
